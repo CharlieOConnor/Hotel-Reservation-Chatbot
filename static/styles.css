@@ -1,0 +1,167 @@
+html, body
+{
+font-family: Garamond;
+background-color: black;
+height: 100%;
+display: flex;
+flex-direction: column;
+overflow: overlay;
+}
+h1
+{
+color: black;
+margin-bottom: 0;
+margin-top: 0;
+text-align: center;
+font-size: 40px;
+}
+h3
+{
+color: black;
+font-size: 20px;
+margin-top: 3px;
+text-align: center;
+}
+#chatbox {
+background-color: white;
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+margin-top: 1%;
+margin-bottom: 1%;
+padding: 10px;
+padding-bottom: 50px;
+border: 3px solid black;
+border-radius: 10px;
+flex-grow: 1;
+position: relative;
+}
+#userInput {
+margin-left: auto;
+margin-right: auto;
+position: absolute;
+bottom: 20px;
+left: 2%;
+right: -60%;
+}
+#textInput {
+width: 40%;
+border: none;
+border-bottom: 3px solid #009688;
+font-family: monospace;
+font-size: 17px;
+}
+#buttonInput {
+padding: 3px;
+font-family: monospace;
+font-size: 17px;
+/*position: absolute;*/
+bottom: 3%;
+}
+.userText {
+/*color: white;
+font-family: monospace;
+font-size: 17px;
+text-align: right;
+line-height: 30px;*/
+max-width: 50%;
+width: fit-content;
+background: #bf2d00;
+padding: 15px;
+margin-left: auto;
+font-size: 17px;
+color: #fff;
+font-family: monospace;
+border-radius: 30px;
+}
+/*.userText span {
+background-color: #B1B4B6;
+padding: 10px;
+border-radius: 30px;
+}*/
+
+span {
+word-wrap: break-word;
+}
+
+.introduction {
+max-width: 50%;
+width: fit-content;
+background: #00bfb6;
+padding: 15px;
+text-align: left;
+font-size: 17px;
+color: #fff;
+font-family: monospace;
+border-radius: 30px;
+}
+
+.botText {
+/*color: white;
+font-family: monospace;
+font-size: 17px;
+text-align: left;
+line-height: 0px;*/
+max-width: 50%;
+width: fit-content;
+background: #00bfb6;
+padding: 15px;
+text-align: left;
+font-size: 17px;
+color: #fff;
+font-family: monospace;
+border-radius: 30px;
+}
+
+/*.botText span {
+background-color: #33A7FF;
+padding: 10px;
+border-radius: 30px;
+}*/
+
+#booking_calendar {
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+}
+
+#rooms {
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+}
+
+/* Typing Animation */
+#wave .dot {
+background: #00bfb6;
+padding: 2px;
+display: inline-block;
+width: 5px;
+height: 5px;
+border-radius: 100%;
+margin-left: 0.5%;
+margin-right: 0.5%;
+margin-bottom: 3%;
+animation: wave 1s linear infinite;
+animation-delay: -0.9s;
+}
+
+#wave .dot.two {
+animation-delay: -0.7s;
+}
+
+#wave .dot.three {
+animation-delay: -0.5s;
+}
+
+@keyframes wave {
+  0%,
+  60%,
+  100% {
+    transform: initial;
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}
+/* End of Typing Animation

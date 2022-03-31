@@ -13,10 +13,10 @@
 			<div id="chatbox">
 				<p class="introduction">Hi, I'm a hotel booking system chatbot.</p>
 				<p class="botText"><span>Do you have a booking with one of our hotels?</span></p>
-				<div id='userInput'>
-					<input id="textInput" type="text" name="user_input" placeholder="Please enter your message here">
-					<input id="buttonInput" type="submit" onclick="check()">
-				</div>
+			</div>
+			<div id='userInput'>
+				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
+				<img id="buttonInput" type="submit" onclick="check()" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>
 			<input id="booking_calendar" type="text" name="user_calendar" style="display:none" value="">
 				<select name="rooms" id="rooms" style="display:none">
@@ -28,7 +28,7 @@
 				</select>
 			</input>
 			<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
-			
+			<!--<script type="module" src="{{ url_for('static', filename='date.js') }}"></script>-->
 			<!--</form>-->
 		</body>
 	</head>

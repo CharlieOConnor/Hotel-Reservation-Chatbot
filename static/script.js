@@ -41,59 +41,71 @@ function getBotResponse() {
 	var botThinking1 = '<span id="wave"><span class="dot one"></span></span>';
 	var botThinking2 = '<span id="wave"><span class="dot two"></span></span>';
 	var botThinking3 = '<span id="wave"><span class="dot three"></span></span>';
-	$("#textInput").val(""); 																			//Reset the text input field contents
-	$("#chatbox").append(userHtml);
-	document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			//Keeps the user field in view
-	$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {
-		$("#chatbox").append(botThinking1, botThinking2, botThinking3);										
-		setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
-		setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
-		setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
-		var botHtml = '<p class="botText"><span>' + bot_message_dict[data] + '</span></p>';
-		setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
-		
-		if (data == "5") {
-			document.getElementById('userInput').style.display = "none";
-			document.getElementById('booking_calendar').style.display = "block";
-			$(function() {
-				$('input[name="user_calendar"]').daterangepicker();
-				$('input[name="user_calendar"]').on('apply.daterangepicker', function(ev, picker) {
+	
+	if (rawText !== "") {
+		document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot
+		$("#textInput").val("");																		//Reset the text input field contents
+		$("#chatbox").append(userHtml);
+		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			//Keeps the user field in view
+		$("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100);
+		$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {
+			$("#chatbox").append(botThinking1, botThinking2, botThinking3);										
+			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
+			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
+			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
+			/*var messageDate = '<p class="date"><span>' + timeSince(new Date("Sep 30 2019")) + '</span></p>';*/
+			var botHtml = '<p class="botText"><span>' + bot_message_dict[data] + '</span></p>';
+			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
+			
+			if (data == "5") {
+				document.getElementById('userInput').style.display = "none";
+				document.getElementById('booking_calendar').style.display = "block";
+				$(function() {
+					$('input[name="user_calendar"]').daterangepicker();
+					$('input[name="user_calendar"]').on('apply.daterangepicker', function(ev, picker) {
+						getBotResponse();
+					});
+				});
+			}
+			else {
+				document.getElementById('userInput').style.display = "block";
+				document.getElementById('booking_calendar').style.display = "none";
+			}
+
+			if (data == "10") {
+				document.getElementById('userInput').style.display = "none";
+				document.getElementById('rooms').style.display = "block";
+				let option = document.getElementById("rooms");
+				option.addEventListener('change', function() {
+					data = "11";
+				  //$('#rooms :selected').text();
 					getBotResponse();
 				});
-			});
-		}
-		else {
-			document.getElementById('userInput').style.display = "block";
-			document.getElementById('booking_calendar').style.display = "none";
-		}
+			}
+			else {
+				document.getElementById('rooms').style.display = "none";
+			}
 
-		if (data == "10") {
-			document.getElementById('userInput').style.display = "none";
-			document.getElementById('rooms').style.display = "block";
-			let option = document.getElementById("rooms");
-			option.addEventListener('change', function() {
-				data = "11";
-			  //$('#rooms :selected').text();
-				getBotResponse();
-			});
+			document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// A second instance to prevent glitching
+			counter = data;
+			setTimeout(() => { $("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100); }, 1100);
+			document.getElementById("textInput").disabled = false;
 		}
-		else {
-			document.getElementById('rooms').style.display = "none";
-		}
-
-		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// A second instance to prevent glitching
-		counter = data;
+		);
 	}
-	);
 }
 
 $("#textInput").keypress(function(event) {
-	if(event.which == 13) {
-		getBotResponse();
+	if(event.which == 13) { 
+		getBotResponse()
+		$(this).val('').focus();  
+		return false;
 	}
 });
 
 function check() {
+	document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
+	setTimeout(() => { document.getElementById("buttonInput").style.backgroundColor = "#90EE90";}, 150);
 	getBotResponse();
 }
 
@@ -138,6 +150,12 @@ $(function() {
 	});
 });
 
-var xlsxRows = require('xlsx-rows');
+/* Expand height of text box when overflow occurs */
+/*function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}*/
+
+/*var xlsxRows = require('xlsx-rows');
 var rows = xlsxRows('user-questions.xlsx');
-console.dir(rows);
+console.dir(rows);*/

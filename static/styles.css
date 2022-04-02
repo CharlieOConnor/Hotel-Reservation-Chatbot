@@ -1,5 +1,5 @@
 html, body {
-font-family: Garamond;
+font-family: Garamond, Georgia, serif;
 background-color: green;
 display: flex;
 flex-direction: column;
@@ -74,9 +74,10 @@ padding: 1vh;
 margin-left: auto;
 font-size: 0.9vw;
 color: #fff;
-font-family: monospace;
+font: 13px Consolas, sans-serif;
 border-radius: 20px;
 margin-right: 1vw;
+padding: 1vw;
 }
 /*.userText span {
 background-color: #B1B4B6;
@@ -93,6 +94,7 @@ textarea {
 resize: none;
 padding-top: 0;
 transform: translateY(30%);
+overflow: hidden; /* For Firefox */
 }
 
 .introduction {
@@ -103,9 +105,10 @@ padding: 1vh;
 text-align: left;
 font-size: 0.9vw;
 color: #fff;
-font-family: monospace;
+font: 13px Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
+padding: 1vw;
 }
 
 .botText {
@@ -121,9 +124,10 @@ padding: 1vh;
 text-align: left;
 font-size: 0.9vw;
 color: #fff;
-font-family: monospace;
+font: 13px Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
+padding: 1vw;
 }
 
 #booking_calendar {
@@ -177,7 +181,7 @@ margin-left: 0.5vw;
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-	width: 5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {

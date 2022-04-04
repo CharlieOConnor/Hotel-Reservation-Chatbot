@@ -31,27 +31,27 @@ flex-grow: 1;
 overflow-y: scroll;
 }
 
-@media screen and (max-width: 1300px) {
+@media only screen and (max-width: 1300px) {
 	#chatbox {
 	width: 35vw;
 	}
 }
-@media screen and (max-width: 1100px) {
+@media only screen and (max-width: 1100px) {
 	#chatbox {
 	width: 45vw;
 	}
 }
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 	#chatbox {
 	width: 55vw;
 	}
 }
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
 	#chatbox {
 	width: 65vw;
 	}
 }
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 	#chatbox {
 	width: 75vw;
 	}

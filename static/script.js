@@ -89,7 +89,8 @@ function getBotResponse() {
 			document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// A second instance to prevent glitching
 			counter = data;
 			setTimeout(() => { $("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100); }, 1100);
-			document.getElementById("textInput").disabled = false;
+			document.getElementById("textInput").disabled = false;												// Enable the text field and put the user's cursor inside for the next input
+			setTimeout(() => { 	document.getElementById("textInput").focus();}, 1000);
 		}
 		);
 	}

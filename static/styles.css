@@ -32,32 +32,6 @@ flex-grow: 1;
 overflow-y: scroll;
 }
 
-@media only screen and (max-width: 1300px) {
-	#chatbox {
-	width: 35vw;
-	}
-}
-@media (max-width: 1100px), only screen and (orientation: portrait) {
-	#chatbox {
-	width: 100vw;
-	}
-}
-@media only screen and (max-width: 900px) {
-	#chatbox {
-	width: 55vw;
-	}
-}
-@media only screen and (max-width: 700px) {
-	#chatbox {
-	width: 65vw;
-	}
-}
-@media only screen and (max-width: 600px) {
-	#chatbox {
-	width: 75vw;
-	}
-}
-
 #userInput {
 background-color: white;
 border-top: 4px solid #009688;
@@ -68,32 +42,6 @@ width: 25vw;
 /*border-bottom-left-radius: 1vw;
 border-bottom-right-radius: 1vw;*/
 }
-
-@media screen and (max-width: 1300px) {
-  #userInput {
-    width: 35vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  #userInput {
-    width: 45vw;
-  }
-}
-@media screen and (max-width: 900px) {
-  #userInput {
-    width: 55vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  #userInput {
-    width: 65vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  #userInput {
-    width: 75vw;
-  }
-}
  
 #textInput {
 width: 75%;
@@ -102,49 +50,8 @@ margin-top: 1vh;
 border: none;
 outline: none;
 font-family: monospace;
-font-size: 0.9vw;
+font-size: 1em;
 }
-@media screen and (max-width: 1300px) {
-  #textInput {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1200px) {
-  #textInput {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  #textInput {
-    font-size: 1.7vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  #textInput {
-    font-size: 1.9vw;
-  }
-}
-@media screen and (max-width: 900px) {
-  #textInput {
-    font-size: 2.1vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  #textInput {
-    font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  #textInput {
-    font-size: 2.5vw;
-	padding: 2vw;
-  }
-}
-/*@media screen and (max-width: 600px) {
-  #textInput {
-    font-size: 3.5vw;
-  }
-}*/
 
 #buttonInput {
 padding-top: 1vw;
@@ -152,7 +59,7 @@ padding-bottom: 1vw;
 padding-left: 1.5vw;
 padding-right: 1.5vw;
 font-family: monospace;
-font-size: 1.2vw;
+font-size: 1em;
 background-color: #90EE90;
 width: 7%;
 /*border-bottom-right-radius: 1vw;*/
@@ -170,51 +77,10 @@ background: linear-gradient(#ec6f66, #f3a183);
 padding: 1vh;
 margin-left: auto;
 color: #fff;
-font: 0.9vw Consolas, sans-serif;
+font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-right: 1vw;
 padding: 1vw;
-}
-@media screen and (max-width: 1300px) {
-  .userText {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .userText {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  .userText {
-    font-size: 1.7vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .userText {
-    font-size: 1.9vw;
-  }
-}
-@media screen and (max-width: 900px) {
-  .userText {
-    font-size: 2.1vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  .userText {
-    font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  .userText {
-    font-size: 2.5vw;
-	padding: 2vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  .userText {
-    font-size: 3.5vw;
-  }
 }
 
 /*.userText span {
@@ -241,52 +107,10 @@ background: linear-gradient(#02aab0, #00cdac);
 padding: 1vh;
 text-align: left;
 color: #fff;
-font: 0.9vw Consolas, sans-serif;
+font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
 padding: 1vw;
-}
-
-@media screen and (max-width: 1300px) {
-  .introduction {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .introduction {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  .introduction {
-    font-size: 1.7vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .introduction {
-    font-size: 1.9vw;
-  }
-}
-@media screen and (max-width: 900px) {
-  .introduction {
-    font-size: 2.1vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  .introduction {
-    font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  .introduction {
-    font-size: 2.5vw;
-	padding: 2vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  .introduction {
-    font-size: 3.5vw;
-  }
 }
 
 .botText {
@@ -301,52 +125,10 @@ background: linear-gradient(#02aab0, #00cdac);
 padding: 1vh;
 text-align: left;
 color: #fff;
-font: 0.9vw Consolas, sans-serif;
+font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
 padding: 1vw;
-}
-
-@media screen and (max-width: 1300px) {
-  .botText {
-    font-size: 1.3vw;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .botText {
-    font-size: 1.5vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  .botText {
-    font-size: 1.7vw;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .botText {
-    font-size: 1.9vw;
-  }
-}
-@media screen and (max-width: 900px) {
-  .botText {
-    font-size: 2.1vw;
-  }
-}
-@media screen and (max-width: 800px) {
-  .botText {
-    font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 700px) {
-  .botText {
-    font-size: 2.5vw;
-	padding: 2vw;
-  }
-}
-@media screen and (max-width: 600px) {
-  .botText {
-    font-size: 3.5vw;
-  }
 }
 
 #booking_calendar {
@@ -416,4 +198,94 @@ margin-left: 0.5vw;
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
+}
+
+/*resizes */
+
+@media only screen and (max-width: 1300px) {
+	#chatbox {
+	width: 35%
+	}
+	#userInput {
+	width: 35%
+	}
+}
+@media only screen and (max-width: 1200px) {
+	#chatbox {
+	width: 40%
+	}
+	#userInput {
+	width: 40%
+	}
+}
+@media (max-width: 1100px), only screen and (orientation: portrait) {
+	#chatbox {
+	width: 45%
+	}
+	#userInput {
+	width: 45%
+	}
+}
+@media only screen and (max-width: 1000px) {
+	#chatbox {
+	width: 50%
+	}
+	#userInput {
+	width: 50%
+	}
+	#textInput {
+	font-size: 1.2em;
+	}
+	.userText {
+    font-size: 1.2em;
+	}
+	.introduction {
+    font-size: 1.2em;
+	}
+	.botText {
+    font-size: 1.2em;
+	}
+}
+@media only screen and (max-width: 900px) {
+	#chatbox {
+	width: 55%
+	}
+	#userInput {
+	width: 55%
+	}
+}
+@media only screen and (max-width: 800px) {
+	#chatbox {
+	width: 60%
+	}
+	#userInput {
+	width: 60%
+	}
+	.userText {
+	padding: 1.5vw;
+	}
+	.introduction {
+	margin-left: 2vw;
+	padding: 1.5vw;
+	}
+	.botText {
+	margin-left: 2vw;
+	padding: 1.5vw;
+	}
+}
+@media only screen and (max-width: 700px) {
+	#chatbox {
+	width: 65%
+	}
+	#userInput {
+	width: 65%
+	}
+}
+@media only screen and (max-width: 600px) {
+	#chatbox {
+	width: 75%
+	}
+	#userInput {
+	width: 75%
+	}
 }

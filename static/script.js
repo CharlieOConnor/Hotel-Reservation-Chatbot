@@ -37,7 +37,7 @@ var bot_message_dict = {
 
 function getBotResponse() {
 	var rawText = $("#textInput").val();
-	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+	var userHtml = '<p class="userText"><span>' + rawText + " " + window.innerWidth + " " + window.innerHeight + '</span></p>';
 	var botThinking1 = '<span id="wave"><span class="dot one"></span></span>';
 	var botThinking2 = '<span id="wave"><span class="dot two"></span></span>';
 	var botThinking3 = '<span id="wave"><span class="dot three"></span></span>';

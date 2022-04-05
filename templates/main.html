@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, user-scalable=yes">
 		<link rel="stylesheet" type="text/css" href="/static/styles.css">
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="/static/media_queries.css">
+		<link rel="stylesheet" type="text/css" href="/static/auto_complete.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -15,9 +16,15 @@
 				<p class="introduction">Hi, I'm a hotel booking system chatbot.</p>
 				<p class="botText"><span>Do you have a booking with one of our hotels?</span></p>
 			</div>
+			<div id="myDropDown" class="menuContent">
+				<a onclick="submit_selection(this)">Main Menu</a>
+				<a href="#book_room">Book a room</a>
+				<a href="#report_chat">Report this chat</a>
+			</div>
 			<div id='userInput'>
+				<img id="hamburgerMenu" onclick="open_menu()" src="../static/images/hamburger_menu.png" align="left"></img>					
 				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
-				<img id="buttonInput" type="submit" onclick="check()" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
+				<img id="buttonInput" type="submit" onclick="submit_input()" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>
 			<input id="booking_calendar" type="text" name="user_calendar" style="display:none" value="">
 				<select name="rooms" id="rooms" style="display:none">

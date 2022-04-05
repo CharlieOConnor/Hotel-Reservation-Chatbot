@@ -7,6 +7,7 @@ overflow: hidden;
 height: 100vh;
 margin: 0px;
 }
+
 h1 {
 color: black;
 margin-bottom: 0;
@@ -44,13 +45,14 @@ border-bottom-right-radius: 1vw;*/
 }
  
 #textInput {
-width: 75%;
-margin-left: 0.5vw;
-margin-top: 1vh;
+width: 55%;
+margin-left: 1vw;
+margin-top: 2vh;
 border: none;
 outline: none;
 font-family: monospace;
 font-size: 1em;
+font-weight: bold;
 }
 
 #buttonInput {
@@ -62,7 +64,39 @@ font-family: monospace;
 font-size: 1em;
 background-color: #90EE90;
 width: 7%;
-/*border-bottom-right-radius: 1vw;*/
+}
+
+#hamburgerMenu {
+width: 7%;
+height: 60%;
+padding-left: 0.7em;
+padding-top: 0.7em;
+}
+
+.menuContent {
+display: none;
+position: relative;
+background-color: #ffffff;
+font-family: monospace;
+font-weight: bold;
+width: 25vw;
+margin-left: auto;
+margin-right: auto;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 9999;
+}
+
+.menuContent a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;	
+color: green;
+}
+
+.show {
+display: block;
 }
 
 .userText {
@@ -74,13 +108,13 @@ line-height: 30px;*/
 max-width: 50%;
 width: fit-content;
 background: linear-gradient(#ec6f66, #f3a183);
-padding: 1vh;
 margin-left: auto;
 color: #fff;
 font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-right: 1vw;
-padding: 1vw;
+padding: 10px;
+margin-bottom: 0.1em;
 }
 
 /*.userText span {
@@ -97,7 +131,8 @@ word-wrap: break-word;
 textarea {
 resize: none;
 padding-top: 0;
-overflow: hidden; /* For Firefox */
+/*overflow: hidden; For Firefox  (keeping it on makes it so I can't see text though */
+font-weight: bold;
 }
 
 .introduction {
@@ -129,6 +164,7 @@ font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
 padding: 1vw;
+margin-bottom: 0.1em;
 }
 
 #booking_calendar {
@@ -169,6 +205,18 @@ animation-delay: -0.5s;
 margin-left: 0.5vw;
 }
 
+#time-user {
+font: 0.8em Consolas, sans-serif;
+padding-left: 82%;
+padding-bottom: 1em;
+}
+
+#time-bot {
+font: 0.8em Consolas, sans-serif;
+padding-left: 5%;
+padding-bottom: 1em;
+}
+
 @keyframes wave {
   0%,
   60%,
@@ -198,94 +246,4 @@ margin-left: 0.5vw;
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
-}
-
-/*resizes */
-
-@media only screen and (max-width: 1300px) {
-	#chatbox {
-	width: 35%
-	}
-	#userInput {
-	width: 35%
-	}
-}
-@media only screen and (max-width: 1200px) {
-	#chatbox {
-	width: 40%
-	}
-	#userInput {
-	width: 40%
-	}
-}
-@media (max-width: 1100px), only screen and (orientation: portrait) {
-	#chatbox {
-	width: 45%
-	}
-	#userInput {
-	width: 45%
-	}
-}
-@media only screen and (max-width: 1000px) {
-	#chatbox {
-	width: 50%
-	}
-	#userInput {
-	width: 50%
-	}
-	#textInput {
-	font-size: 1.2em;
-	}
-	.userText {
-    font-size: 1.2em;
-	}
-	.introduction {
-    font-size: 1.2em;
-	}
-	.botText {
-    font-size: 1.2em;
-	}
-}
-@media only screen and (max-width: 900px) {
-	#chatbox {
-	width: 55%
-	}
-	#userInput {
-	width: 55%
-	}
-}
-@media only screen and (max-width: 800px) {
-	#chatbox {
-	width: 60%
-	}
-	#userInput {
-	width: 60%
-	}
-	.userText {
-	padding: 1.5vw;
-	}
-	.introduction {
-	margin-left: 2vw;
-	padding: 1.5vw;
-	}
-	.botText {
-	margin-left: 2vw;
-	padding: 1.5vw;
-	}
-}
-@media only screen and (max-width: 700px) {
-	#chatbox {
-	width: 65%
-	}
-	#userInput {
-	width: 65%
-	}
-}
-@media only screen and (max-width: 600px) {
-	#chatbox {
-	width: 75%
-	}
-	#userInput {
-	width: 75%
-	}
 }

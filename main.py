@@ -1,5 +1,4 @@
 from flask import Flask, render_template, Response, request, redirect, url_for
-import random
 
 app = Flask(__name__)
 

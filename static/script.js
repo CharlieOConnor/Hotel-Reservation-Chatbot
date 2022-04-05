@@ -37,16 +37,17 @@ var bot_message_dict = {
 
 function getBotResponse() {
 	var rawText = $("#textInput").val();
-	var userHtml = '<p class="userText"><span>' + rawText + " " + window.innerWidth + " " + window.innerHeight + '</span></p>';
+	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
 	var botThinking1 = '<span id="wave"><span class="dot one"></span></span>';
 	var botThinking2 = '<span id="wave"><span class="dot two"></span></span>';
 	var botThinking3 = '<span id="wave"><span class="dot three"></span></span>';
 	
 	if (rawText !== "") {
 		document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot
-		$("#textInput").val("");																		//Reset the text input field contents
+		$("#textInput").val("");																		// Reset the text input field contents
 		$("#chatbox").append(userHtml);
-		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			//Keeps the user field in view
+		$("#chatbox").append('<span id="time-user">' + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) + '</span>');
+		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// Keeps the user field in view
 		$("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100);
 		$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {
 			$("#chatbox").append(botThinking1, botThinking2, botThinking3);										
@@ -56,6 +57,7 @@ function getBotResponse() {
 			/*var messageDate = '<p class="date"><span>' + timeSince(new Date("Sep 30 2019")) + '</span></p>';*/
 			var botHtml = '<p class="botText"><span>' + bot_message_dict[data] + '</span></p>';
 			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
+			setTimeout(() => { $("#chatbox").append('<span id="time-bot">' + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) + '</span>'); }, 1100);
 			
 			if (data == "5") {
 				document.getElementById('userInput').style.display = "none";
@@ -104,9 +106,18 @@ $("#textInput").keypress(function(event) {
 	}
 });
 
-function check() {
+function submit_input() {
 	document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
 	setTimeout(() => { document.getElementById("buttonInput").style.backgroundColor = "#90EE90";}, 150);
+	getBotResponse();
+}
+
+function open_menu() {
+	document.getElementById("myDropDown").classList.toggle("show");
+}
+
+function submit_selection(a) {
+	$("#textInput").append(a.innerHTML);
 	getBotResponse();
 }
 
@@ -150,6 +161,8 @@ $(function() {
 		position: { my : "left bottom", at: "left top" }
 	});
 });
+
+
 
 /* Expand height of text box when overflow occurs */
 /*function auto_grow(element) {

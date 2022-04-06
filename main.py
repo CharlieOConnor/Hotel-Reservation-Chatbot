@@ -8,6 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import warnings
 warnings.filterwarnings("ignore")
 from flask import Flask, render_template, Response, request, redirect, url_for
+from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
@@ -20,13 +21,12 @@ def main():
 # Reading in the data
     f=open('chatbot.txt','r',errors = 'ignore')
     raw=f.read()
+    print(raw)
     raw=raw.lower()# converts to lowercase
-    #nltk.download('punkt') # first-time use only
-    #nltk.download('wordnet') # first-time use only
-    sent_tokens = nltk.sent_tokenize(raw)# converts to list of sentences 
+    sent_tokens = [p for p in raw.split('\n')]# converts to list of sentences 
     word_tokens = nltk.word_tokenize(raw)# converts to list of words
 
-    # Pre-processing the raw text
+    # Pre-processing the raw text to turn similar words into their base stem form that can be looked up in a dictionary
     lemmer = nltk.stem.WordNetLemmatizer()
     #WordNet is a semantically-oriented dictionary of English included in NLTK.
     def LemTokens(tokens):
@@ -59,10 +59,12 @@ def main():
             robo_response=robo_response+"I am sorry, I didn't understand you. Please retry your query with a little more detail."
             return robo_response
         else:
-            robo_response = robo_response+sent_tokens[idx].capitalize()
+            final_message = '. '.join(map(lambda s: s.strip().capitalize(), sent_tokens[idx].split('.')))
+            robo_response = robo_response+final_message
             return robo_response
     
     message = request.args["user_input"]
+    
     # Feed lines to bot based on user input
     flag=True
     while(flag == True):
@@ -78,9 +80,7 @@ def main():
                     sent_tokens.append(message)
                     word_tokens = word_tokens+nltk.word_tokenize(message)
                     final_words = list(set(word_tokens))
-                   # print(end = "")
                     return response(message)
-                   # sent_tokens.remove(message)
         else:
             flag=False
             return "Bye! take care."

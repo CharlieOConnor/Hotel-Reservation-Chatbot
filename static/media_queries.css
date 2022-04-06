@@ -43,6 +43,12 @@
 	}
 }
 @media only screen and (max-width: 800px) {
+	#wave .dot {
+	left: 30px;
+	}
+	#wave .dot.three {
+	margin-left: -3em;
+	}
 	.userText {
 	padding: 1.5vw;
 	}
@@ -53,5 +59,27 @@
 	.botText {
 	margin-left: 2vw;
 	padding: 1.5vw;
+	}
+}
+@media only screen and (max-width: 700px) {
+	#wave .dot.one {
+	left: 15px;
+	bottom: 20px;
+	}
+	#wave .dot.two {
+	bottom: 20px;
+	left: 20px;
+	margin-left: none;
+	}
+	#wave .dot.three {
+	bottom: 20px;
+	left: 80px;
+	}
+}
+
+@media only screen and (max-width: 672px) and (min-width: 578px) {
+	#wave .dot.one {
+	left: 28px;
+	bottom: 2px;
 	}
 }

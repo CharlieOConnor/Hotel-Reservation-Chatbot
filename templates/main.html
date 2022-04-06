@@ -16,13 +16,13 @@
 				<p class="introduction">Hi, I'm a hotel booking system chatbot.</p>
 				<p class="botText"><span>Do you have a booking with one of our hotels?</span></p>
 			</div>
-			<div id="myDropDown" class="menuContent">
-				<a onclick="submit_selection(this)">Main Menu</a>
-				<a href="#book_room">Book a room</a>
-				<a href="#report_chat">Report this chat</a>
-			</div>
 			<div id='userInput'>
-				<img id="hamburgerMenu" onclick="open_menu()" src="../static/images/hamburger_menu.png" align="left"></img>					
+				<img id="hamburgerMenu" onclick="open_menu()" src="../static/images/hamburger_menu.png" align="left"></img>	
+				<div id="myDropDown" class="menuContent">
+					<a onclick="submit_selection(this)">Main Menu</a>
+					<a onclick="submit_selection(this)">Book a room</a>
+					<a onclick="submit_selection(this)">Report this chat</a>
+				</div>
 				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
 				<img id="buttonInput" type="submit" onclick="submit_input()" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>

@@ -26,7 +26,7 @@ background-color: white;
 margin-left: auto;
 margin-right: auto;
 /*margin-top: 10vh;*/
-width: 25vw;
+width: 30vw;
 /*border-top-left-radius: 1vw;
 border-top-right-radius: 1vw;*/
 flex-grow: 1;
@@ -39,7 +39,7 @@ border-top: 4px solid #009688;
 margin-left: auto;
 margin-right: auto;
 /*margin-bottom: 10vh;*/
-width: 25vw;
+width: 30vw;
 /*border-bottom-left-radius: 1vw;
 border-bottom-right-radius: 1vw;*/
 }
@@ -74,17 +74,17 @@ padding-top: 0.7em;
 }
 
 .menuContent {
+z-index: 1;
 display: none;
-position: relative;
 background-color: #ffffff;
 font-family: monospace;
 font-weight: bold;
-width: 25vw;
-margin-left: auto;
-margin-right: auto;
-overflow: auto;
+position: absolute;
+width: 27%;
+margin-left: 1.5vw;
+bottom: 64px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 9999;
+border-radius: 20px;
 }
 
 .menuContent a {
@@ -95,8 +95,13 @@ display: block;
 color: green;
 }
 
+.menuContent a:hover {
+background-color: #ccc;
+border-radius: 10px;
+}
+
 .show {
-display: block;
+display: grid;
 }
 
 .userText {
@@ -187,22 +192,21 @@ display: inline-block;
 width: 5px;
 height: 5px;
 border-radius: 100%;
-margin-left: 0.5%;
-margin-right: 0.5%;
-margin-bottom: 3%;
 animation: wave 1s linear infinite;
 animation-delay: -0.9s;
-margin-left: 1vw;
+margin-left: 45px;
+float: left;
+position: relative;
 }
 
 #wave .dot.two {
 animation-delay: -0.7s;
-margin-left: 0.5vw;
+margin-left: 0.5em;
 }
 
 #wave .dot.three {
 animation-delay: -0.5s;
-margin-left: 0.5vw;
+margin-left: 0.5em;
 }
 
 #time-user {

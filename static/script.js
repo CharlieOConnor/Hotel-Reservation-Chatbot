@@ -36,8 +36,8 @@ var bot_message_dict = {
 };
 
 function getBotResponse() {
-	var rawText = $("#textInput").val();
-	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+	var rawText = $("#textInput").val();																// Get the user input from the textarea
+	var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';	//Assign that value to a new variable
 	var botThinking1 = '<span id="wave"><span class="dot one"></span></span>';
 	var botThinking2 = '<span id="wave"><span class="dot two"></span></span>';
 	var botThinking3 = '<span id="wave"><span class="dot three"></span></span>';
@@ -47,11 +47,11 @@ function getBotResponse() {
 		$("#textInput").val("");																		// Reset the text input field contents
 		$("#chatbox").append(userHtml);
 		$("#chatbox").append('<span id="time-user">' + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) + '</span>');
-		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// Keeps the user field in view
+		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});		// Keeps the user field in view
 		$("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100);
 		$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {
 			$("#chatbox").append(botThinking1, botThinking2, botThinking3);										
-			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
+			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);			// Remove 'thinking' dots when bot messaged is posted
 			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
 			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
 			/*var messageDate = '<p class="date"><span>' + timeSince(new Date("Sep 30 2019")) + '</span></p>';*/
@@ -113,12 +113,15 @@ function submit_input() {
 }
 
 function open_menu() {
+	document.getElementById("hamburgerMenu").src = "../static/images/hamburger_menu_click.png";
+	setTimeout(() => { 	document.getElementById("hamburgerMenu").src = "../static/images/hamburger_menu.png";}, 200);
 	document.getElementById("myDropDown").classList.toggle("show");
 }
 
 function submit_selection(a) {
-	$("#textInput").append(a.innerHTML);
+	$("#textInput").val(a.innerHTML);
 	getBotResponse();
+	document.getElementById("myDropDown").classList.toggle("show");
 }
 
 $(function() {

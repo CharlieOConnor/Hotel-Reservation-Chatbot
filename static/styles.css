@@ -25,10 +25,7 @@ text-align: center;
 background-color: white;
 margin-left: auto;
 margin-right: auto;
-/*margin-top: 10vh;*/
 width: 30vw;
-/*border-top-left-radius: 1vw;
-border-top-right-radius: 1vw;*/
 flex-grow: 1;
 overflow-y: scroll;
 }
@@ -38,10 +35,7 @@ background-color: white;
 border-top: 4px solid #009688;
 margin-left: auto;
 margin-right: auto;
-/*margin-bottom: 10vh;*/
 width: 30vw;
-/*border-bottom-left-radius: 1vw;
-border-bottom-right-radius: 1vw;*/
 }
  
 #textInput {
@@ -105,11 +99,6 @@ display: grid;
 }
 
 .userText {
-/*color: white;
-font-family: monospace;
-font-size: 17px;
-text-align: right;
-line-height: 30px;*/
 max-width: 50%;
 width: fit-content;
 background: linear-gradient(#ec6f66, #f3a183);
@@ -121,12 +110,6 @@ margin-right: 1vw;
 padding: 10px;
 margin-bottom: 0.1em;
 }
-
-/*.userText span {
-background-color: #B1B4B6;
-padding: 10px;
-border-radius: 30px;
-}*/
 
 span {
 white-space: pre-wrap;
@@ -151,14 +134,10 @@ font: 1em Consolas, sans-serif;
 border-radius: 20px;
 margin-left: 1vw;
 padding: 1vw;
+word-wrap: pre-wrap;
 }
 
 .botText {
-/*color: white;
-font-family: monospace;
-font-size: 17px;
-text-align: left;
-line-height: 0px;*/
 max-width: 50%;
 width: fit-content;
 background: linear-gradient(#02aab0, #00cdac);

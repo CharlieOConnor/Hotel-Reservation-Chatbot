@@ -1,38 +1,9 @@
-var counter = "1";
-
 var room_list = {
 "single" : 45,
 "double" : 55,
 "twin" : 55,
 "triple" : 65,
 "quad" : 70
-};
-
-var bot_function_dict = {
-"1" : "/have_booking",
-"2" : "/room_availability",
-"3" : "/complaint",
-"4" : "/available_rooms",
-"5" : "/enter_dates",
-"6" : "/no_available_rooms",
-"7" : "/already_staying",
-"8" : "/extend_stay",
-"9" : "/enter_complaint",
-"10" : "/pick_room"
-};
-
-var bot_message_dict = {
-	"1" : "Do you have a booking with one of our hotels?",
-	"2" : "Would you like to check room availability?",
-	"3" : "Do you have a complaint?",
-	"4" : "There are available rooms. Would you like to book one?",
-	"5" : "Please enter your dates: ",
-	"6" : "No rooms are available for these dates. Would you like to try a different set?",
-	"7" : "Are you already staying with us?",
-	"8" : "Would you like to extend your stay?",
-	"9" : "Please enter your complaint here and we\'ll pass you on to a human operator.",
-	"10" : "Please pick a room from the list below.",
-	"11" : "Thank you for using our service. We hope to see you again soon."
 };
 
 function getBotResponse() {
@@ -49,47 +20,16 @@ function getBotResponse() {
 		$("#chatbox").append('<span id="time-user">' + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) + '</span>');
 		document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});		// Keeps the user field in view
 		$("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100);
-		$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {
+		/*$.get(bot_function_dict[counter], { user_input: rawText }).done(function(data) {	*/			// Make call to main.py, pass the user's response to the right function with bot_function_dict
+			$.get("/main", { user_input: rawText }).done(function(data) {
 			$("#chatbox").append(botThinking1, botThinking2, botThinking3);										
 			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);			// Remove 'thinking' dots when bot messaged is posted
 			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
 			setTimeout(() => { document.getElementById('wave').removeAttribute('id');}, 1000);
-			/*var messageDate = '<p class="date"><span>' + timeSince(new Date("Sep 30 2019")) + '</span></p>';*/
-			var botHtml = '<p class="botText"><span>' + bot_message_dict[data] + '</span></p>';
+			var botHtml = '<p class="botText"><span>' + data + '</span></p>';
 			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
 			setTimeout(() => { $("#chatbox").append('<span id="time-bot">' + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) + '</span>'); }, 1100);
-			
-			if (data == "5") {
-				document.getElementById('userInput').style.display = "none";
-				document.getElementById('booking_calendar').style.display = "block";
-				$(function() {
-					$('input[name="user_calendar"]').daterangepicker();
-					$('input[name="user_calendar"]').on('apply.daterangepicker', function(ev, picker) {
-						getBotResponse();
-					});
-				});
-			}
-			else {
-				document.getElementById('userInput').style.display = "block";
-				document.getElementById('booking_calendar').style.display = "none";
-			}
-
-			if (data == "10") {
-				document.getElementById('userInput').style.display = "none";
-				document.getElementById('rooms').style.display = "block";
-				let option = document.getElementById("rooms");
-				option.addEventListener('change', function() {
-					data = "11";
-				  //$('#rooms :selected').text();
-					getBotResponse();
-				});
-			}
-			else {
-				document.getElementById('rooms').style.display = "none";
-			}
-
 			document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});			// A second instance to prevent glitching
-			counter = data;
 			setTimeout(() => { $("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100); }, 1100);
 			document.getElementById("textInput").disabled = false;												// Enable the text field and put the user's cursor inside for the next input
 			setTimeout(() => { 	document.getElementById("textInput").focus();}, 1000);
@@ -164,15 +104,3 @@ $(function() {
 		position: { my : "left bottom", at: "left top" }
 	});
 });
-
-
-
-/* Expand height of text box when overflow occurs */
-/*function auto_grow(element) {
-    element.style.height = "5px";
-    element.style.height = (element.scrollHeight)+"px";
-}*/
-
-/*var xlsxRows = require('xlsx-rows');
-var rows = xlsxRows('user-questions.xlsx');
-console.dir(rows);*/

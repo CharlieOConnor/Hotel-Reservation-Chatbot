@@ -1,6 +1,6 @@
 html, body {
 font-family: Garamond, Georgia, serif;
-background-color: green;
+background-color: black;
 display: flex;
 flex-direction: column;
 overflow: hidden;
@@ -16,22 +16,44 @@ text-align: center;
 font-size: 40px;
 }
 h3 {
-color: black;
+color: white;
 font-size: 20px;
-margin-top: 3px;
 text-align: center;
+font-family: monospace;
+-webkit-transform: translateY(50%);
 }
+
+#header {
+background-color: #E32636;
+margin-left: auto;
+margin-right: auto;
+width: 30vw;
+}
+
+#hotel_porter_big {
+width: 15%;
+padding-left: 5%;
+-webkit-transform: translateY(-30%);
+}
+
+#hotel_porter_small {
+width: 10%;
+padding-top: 5%;
+padding-left: 1%;
+}
+
 #chatbox {
-background-color: white;
+background-color: #ffffff;
 margin-left: auto;
 margin-right: auto;
 width: 30vw;
 flex-grow: 1;
 overflow-y: scroll;
+padding-bottom: 2em;
 }
 
 #userInput {
-background-color: white;
+background-color: #ffffff;
 border-top: 4px solid #009688;
 margin-left: auto;
 margin-right: auto;
@@ -61,10 +83,14 @@ width: 7%;
 }
 
 #hamburgerMenu {
-width: 7%;
+width: 6%;
 height: 60%;
 padding-left: 0.7em;
 padding-top: 0.7em;
+}
+
+#arrow {
+width: 6%;
 }
 
 .menuContent {
@@ -74,11 +100,11 @@ background-color: #ffffff;
 font-family: monospace;
 font-weight: bold;
 position: absolute;
-width: 27%;
+width: 13%;
 margin-left: 1.5vw;
 bottom: 64px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-border-radius: 20px;
+border-radius: 10px;
 }
 
 .menuContent a {
@@ -94,12 +120,35 @@ background-color: #ccc;
 border-radius: 10px;
 }
 
-.show {
-display: grid;
+.mainMenuContent {
+z-index: 1;
+display: none;
+background-color: #ffffff;
+font-family: monospace;
+font-weight: bold;
+position: absolute;
+width: 13%;
+margin-left: 15%;
+bottom: 64px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+border-radius: 10px;
+}
+
+.mainMenuContent a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;	
+color: green;
+}
+
+.mainMenuContent a:hover {
+background-color: #ccc;
+border-radius: 10px;
 }
 
 .userText {
-max-width: 50%;
+max-width: 45%;
 width: fit-content;
 background: linear-gradient(#ec6f66, #f3a183);
 margin-left: auto;
@@ -121,10 +170,11 @@ resize: none;
 padding-top: 0;
 /*overflow: hidden; For Firefox  (keeping it on makes it so I can't see text though */
 font-weight: bold;
+background-color: #ffffff;
 }
 
 .introduction {
-max-width: 50%;
+max-width: 45%;
 width: fit-content;
 background: linear-gradient(#02aab0, #00cdac);
 padding: 1vh;
@@ -132,13 +182,13 @@ text-align: left;
 color: #fff;
 font: 1em Consolas, sans-serif;
 border-radius: 20px;
-margin-left: 1vw;
+margin-left: 3.5vw;
 padding: 1vw;
 word-wrap: pre-wrap;
 }
 
 .botText {
-max-width: 50%;
+max-width: 45%;
 width: fit-content;
 background: linear-gradient(#02aab0, #00cdac);
 padding: 1vh;
@@ -146,7 +196,7 @@ text-align: left;
 color: #fff;
 font: 1em Consolas, sans-serif;
 border-radius: 20px;
-margin-left: 1vw;
+margin-left: 3.5vw;
 padding: 1vw;
 margin-bottom: 0.1em;
 }
@@ -176,6 +226,7 @@ animation-delay: -0.9s;
 margin-left: 45px;
 float: left;
 position: relative;
+margin-bottom: 20px;
 }
 
 #wave .dot.two {
@@ -190,15 +241,52 @@ margin-left: 0.5em;
 
 #time-user {
 font: 0.8em Consolas, sans-serif;
-padding-left: 82%;
-padding-bottom: 1em;
+padding-left: 83%;
 }
 
 #time-bot {
 font: 0.8em Consolas, sans-serif;
-padding-left: 5%;
-padding-bottom: 1em;
+padding-left: 13%;
+display: block;
 }
+
+#rate {
+position: absolute;
+top: 85%;
+left: 45%;
+font-size: 20px;
+color:#ccc;
+display: none;
+}
+
+#rate:not(:checked) > input {
+position:absolute;
+top:-9999px;
+}
+#rate:not(:checked) > label {
+float:right;
+width:1em;
+overflow:hidden;
+white-space:nowrap;
+cursor:pointer;
+font-size:30px;
+color:#ccc;
+}
+#rate:not(:checked) > label:before {
+    content: '★ ';
+}
+#rate > input:checked ~ label {
+    color: #ffc700;    
+}
+
+#body_background_image {
+height: 100%;
+left: 15%;
+position: absolute;
+z-index: -999;
+opacity: 0.5;
+}
+
 
 @keyframes wave {
   0%,

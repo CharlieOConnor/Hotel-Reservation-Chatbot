@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 #from nltk.chat.util import Chat, reflections
 import warnings
 warnings.filterwarnings("ignore")
-from flask import Flask, render_template, Response, request, redirect, url_for
+from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
 from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
@@ -21,14 +21,14 @@ def main():
 # Reading in the data
     f=open('chatbot.txt','r',errors = 'ignore')
     raw=f.read()
-    print(raw)
+    #print(raw)
     raw=raw.lower()# converts to lowercase
     sent_tokens = [p for p in raw.split('\n')]# converts to list of sentences 
     word_tokens = nltk.word_tokenize(raw)# converts to list of words
 
     # Pre-processing the raw text to turn similar words into their base stem form that can be looked up in a dictionary
     lemmer = nltk.stem.WordNetLemmatizer()
-    #WordNet is a semantically-oriented dictionary of English included in NLTK.
+    # WordNet is a semantically-oriented dictionary of English included in NLTK.
     def LemTokens(tokens):
         return [lemmer.lemmatize(token) for token in tokens]
     remove_punct_dict = dict((ord(punct), None) for punct in string.punctuation)
@@ -84,6 +84,14 @@ def main():
         else:
             flag=False
             return "Bye! take care."
+
+# Open the questions file and return it as a json file
+@app.route("/questions")
+def questions():
+    f=open('questions.txt','r',errors = 'ignore')
+    raw=f.read()
+    sent_tokens = [p for p in raw.split('\n')]
+    return jsonify(sent_tokens)
 
 if __name__ == "__main__":
     app.run(use_reloader=True, debug=True)

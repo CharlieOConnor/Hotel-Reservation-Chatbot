@@ -81,8 +81,6 @@ function submitInput() {
 	getBotResponse();
 }
 
-
-
 // A list of the auto-complete questions in stock, retieved from the main.py as a list
 $(function() {
 	var questions = "";

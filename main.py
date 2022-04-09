@@ -1,5 +1,4 @@
 import nltk
-import numpy as np
 import random
 import string # to process standard python strings
 from sklearn.feature_extraction.text import TfidfVectorizer # Generate response

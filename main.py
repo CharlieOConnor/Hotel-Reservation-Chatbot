@@ -20,7 +20,8 @@ def main():
 # Reading in the data
     f=open('chatbot.txt','r',errors = 'ignore')
     raw=f.read()
-    #print(raw)
+    nltk.download('punkt') # first-time use only
+    nltk.download('wordnet') # first-time use only
     raw=raw.lower()# converts to lowercase
     sent_tokens = [p for p in raw.split('\n')]# converts to list of sentences 
     word_tokens = nltk.word_tokenize(raw)# converts to list of words

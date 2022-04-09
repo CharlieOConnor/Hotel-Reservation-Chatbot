@@ -22,6 +22,7 @@ def main():
     raw=f.read()
     nltk.download('punkt') # first-time use only
     nltk.download('wordnet') # first-time use only
+    nltk.download('omw-1.4')
     raw=raw.lower()# converts to lowercase
     sent_tokens = [p for p in raw.split('\n')]# converts to list of sentences 
     word_tokens = nltk.word_tokenize(raw)# converts to list of words

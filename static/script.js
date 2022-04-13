@@ -51,8 +51,8 @@ function removeBotThoughts() {
 // Retrieve bot response from associated text file
 function getBotResponse() {
 	var rawText = $("#textInput").val();									// Get the user input from the textarea
-	//var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
-	var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';
+	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
+	//var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';
 	
 	if (rawText !== "") {
 		document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot

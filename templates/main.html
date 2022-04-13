@@ -25,17 +25,17 @@
 				<img id="hamburgerMenu" onclick="openMenu()" src="../static/images/hamburger_menu.png" align="left"></img>	
 				<div id="myDropDown" class="menuContent">
 					<a onclick="mainMenuSelect()" onmouseover="playMenuHover()">Main Menu<img id="arrow" src="../static/images/arrow.png" align="right"></img></a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="reportChat(this)" onmouseover="playMenuHover()">Report this chat</a>
-					<a onclick="rateThisChat(this)" onmouseover="playMenuHover()">Rate this chat</a>
+					<a onclick="bookARoom(this)" onmouseover="playMenuHover()">Book a room</a>
+					<a onclick="reportChat('Report this chat')" onmouseover="playMenuHover()">Report this chat</a>
+					<a onclick="rateThisChat('Rate this chat')" onmouseover="playMenuHover()">Rate this chat</a>
 				</div>
 				<div id="mainMenu" class="mainMenuContent">
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Explore Hotel</a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Offers & deals</a>
+					<a onclick="bookARoom(this)" onmouseover="playMenuHover()">Book a room</a>
+					<!--<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Explore Hotel</a>-->
+					<a onclick="offersAndDeals(this)" onmouseover="playMenuHover()">Offers & deals</a>
 					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Local Attractions</a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Airports & stations</a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Booking related issue</a>
+					<a onclick="travelOptions(this)" onmouseover="playMenuHover()">Travel options</a>
+					<a onclick="bookingRelatedIssue(this)" onmouseover="playMenuHover()">Booking related issue</a>
 				</div>
 				<div id="rate">
 					<input type="radio" id="star5" name="rate" value="5" onclick="botRateChatResponse()"/><label for="star5" title="text">5 stars</label>

@@ -6,6 +6,16 @@ var room_list = {
 "quad" : 70
 };
 
+var rateChatStrings = [
+"rate this chat",
+"rate chat"
+]
+
+var reportChatStrings = [
+"report this chat",
+"report chat"
+]
+
 // When a new message is sent to the chatbox element, scroll to the bottom
 function scrollView() {
 	document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
@@ -40,9 +50,9 @@ function removeBotThoughts() {
 
 // Retrieve bot response from associated text file
 function getBotResponse() {
-	var rawText = $("#textInput").val();																// Get the user input from the textarea
-	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
-	//var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';
+	var rawText = $("#textInput").val();									// Get the user input from the textarea
+	//var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
+	var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';
 	
 	if (rawText !== "") {
 		document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot
@@ -50,13 +60,13 @@ function getBotResponse() {
 		$("#chatbox").append(userHtml);
 		showUserTime(); 																				// Current time appended to each message
 		scrollView();																					// Keeps the user field in view
-		$.get("/main", { user_input: rawText }).done(function(data) {									// Make call to main.py, pass the user's response to the right function with bot_function_dict
-			botThinking();						
+		botThinking();		
+		$.get("/main", { user_input: rawText }).done(function(data) {									// Make call to main.py, passing 'rawText' as the user's request and returning 'data' as the bot's answer
 			removeBotThoughts();
 			setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 			var botHtml = '<p class="botText"><span>' + data + '</span></p>';
 			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
-			setTimeout(() => { playMessageSent(); }, 400);
+			setTimeout(() => { playMessageSent(); }, 500);
 			showBotTime();
 			scrollView();
 			document.getElementById("textInput").disabled = false;												// Enable the text field and put the user's cursor inside for the next input
@@ -66,22 +76,40 @@ function getBotResponse() {
 	}
 }
 
-// Activate the getBotResponse() function if the send message button is selected
+// Activate the getBotResponse() function if the user selects the enter key
 $("#textInput").keypress(function(event) {
 	if(event.which == 13) { 
+		if (rateChatStrings.includes($("#textInput").val().toLowerCase())) {
+			rateThisChat($("#textInput").val());
+			return;
+		}
+		else if (reportChatStrings.includes($("#textInput").val().toLowerCase())) {
+			reportChat($("#textInput").val());
+			return;
+		}
 		getBotResponse()
-		$(this).val('').focus();  
-		return false;
+		//$(this).val('').focus();  
+		//return false;
 	}
 });
 
+// Activate the getBotResponse function if the send message button is selected
 function submitInput() {
+	
 	document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
 	setTimeout(() => { document.getElementById("buttonInput").style.backgroundColor = "#90EE90";}, 150);
+	if (rateChatStrings.includes($("#textInput").val().toLowerCase())) {
+			rateThisChat($("#textInput").val());
+			return;
+	}
+	else if (reportChatStrings.includes($("#textInput").val().toLowerCase())) {
+			reportChat($("#textInput").val());
+			return;
+	}
 	getBotResponse();
 }
 
-// A list of the auto-complete questions in stock, retieved from the main.py as a list
+// A list of the auto-complete questions in stock, retrieved from the main.py as a list
 $(function() {
 	var questions = "";
 	$.get("/questions").done(function(data) {

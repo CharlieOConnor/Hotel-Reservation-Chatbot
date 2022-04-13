@@ -5,6 +5,26 @@
 	#userInput {
 	width: 35%
 	}
+	#header {
+	width: 35%;
+	}
+	#hotel_porter_big {
+	width: 15%;
+	padding-left: 5%;
+	-webkit-transform: translateY(-30%);
+	}
+	#hotel_porter_small {
+	width: 8%;
+	padding-top: 5%;
+	padding-left: 1%;
+	}
+	.menuContent {
+	width: 15%;
+	}
+	.mainMenuContent {
+	width: 15%;
+	margin-left: 18%;
+	}
 }
 @media only screen and (max-width: 1200px) {
 	#chatbox {
@@ -12,6 +32,25 @@
 	}
 	#userInput {
 	width: 40%
+	}
+	#header {
+	width: 40%;
+	}
+	#hotel_porter_big {
+	width: 15%;
+	padding-left: 5%;
+	-webkit-transform: translateY(-30%);
+	}
+	#hotel_porter_small {
+	width: 7.5%;
+	padding-top: 5%;
+	padding-left: 1%;
+	}
+	#time-bot {
+	padding-left: 10%;
+	}
+	#time-user {
+	padding-left: 85%;
 	}
 }
 @media (max-width: 1100px), only screen and (orientation: portrait) {
@@ -21,6 +60,32 @@
 	#userInput {
 	width: 45%
 	}
+	#header {
+	width: 45%;
+	}
+	#hotel_porter_big {
+	width: 15%;
+	padding-left: 5%;
+	-webkit-transform: translateY(-30%);
+	}
+	#hotel_porter_small {
+	width: 7%;
+	padding-top: 5%;
+	padding-left: 1%;
+	}
+	.introduction {
+	margin-left: 3.8vw;
+	}
+	.botText {
+	margin-left: 3.8vw;
+	}
+	.menuContent {
+	width: 20%;
+	}
+	.mainMenuContent {
+	width: 20%;
+	margin-left: 22%;
+	}
 }
 @media only screen and (max-width: 1000px) {
 	#chatbox {
@@ -29,19 +94,60 @@
 	#userInput {
 	width: 100%
 	}
+	#header {
+	display: none;
+	}
 	#textInput {
 	font-size: 1.2em;
 	}
+	#hotel_porter_big {
+	width: 7%;
+	padding-left: 5%;
+	padding-bottom: 1.5%;
+	-webkit-transform: translateY(-30%);
+	}
+	#hotel_porter_small {
+	padding-top: 4%;
+	}
+	#time-bot {
+	padding-left: 10%;
+	}
 	.userText {
-    font-size: 1.2em;
+    font-size: 1.5em;
 	}
 	.introduction {
-    font-size: 1.2em;
+    font-size: 1.5em;
+	margin-left: 9vw;
 	}
 	.botText {
-    font-size: 1.2em;
+    font-size: 1.5em;
+	margin-left: 9vw;
+	}
+	.menuContent {
+	width: 25%;
+	bottom: 6em;
+	font-size: 1.5em;
+	}
+	.mainMenuContent {
+	width: 25%;
+	margin-left: 28%;
+	bottom: 6em;
+	font-size: 1.5em;
 	}
 }
+
+@media only screen and (max-width: 900px) {
+	#hotel_porter_small {
+	padding-top: 6%;
+	}
+	.introduction {
+	padding: 2%;
+	}
+	.botText {
+	padding: 2%;
+	}
+}
+
 @media only screen and (max-width: 800px) {
 	#wave .dot {
 	left: 30px;
@@ -49,16 +155,35 @@
 	#wave .dot.three {
 	margin-left: -3em;
 	}
+	#hotel_porter_small {
+	display: none;
+	}
 	.userText {
+	margin-right: 2%;
 	padding: 1.5vw;
+	font-size: 1.2em;
 	}
 	.introduction {
-	margin-left: 2vw;
+	margin-left: 3%;
 	padding: 1.5vw;
+	font-size: 1.2em;
 	}
 	.botText {
-	margin-left: 2vw;
+	margin-left: 3%;
 	padding: 1.5vw;
+	font-size: 1.2em;
+	}
+	#time-bot {
+	padding-left: 5%;
+	}
+	#time-user {
+	padding-left: 90%;
+	}
+	.menuContent {
+	bottom: 5em;
+	}
+	.mainMenuContent {
+	bottom: 5em;
 	}
 }
 @media only screen and (max-width: 700px) {
@@ -75,11 +200,48 @@
 	bottom: 20px;
 	left: 80px;
 	}
+	#buttonInput {
+	width: 8%;
+	}
+	.menuContent {
+	width: 30%;
+	font-size: 1.5em;
+	}
+	.mainMenuContent {
+	width: 30%;
+	margin-left: 35%;
+	font-size: 1.5em;
+	}
 }
 
-@media only screen and (max-width: 672px) and (min-width: 578px) {
-	#wave .dot.one {
-	left: 28px;
-	bottom: 2px;
+@media only screen and (max-width: 600px) {
+	#time-user {
+	padding-left: 86%;
+	}
+	#buttonInput {
+	width: 11%;
+	}
+	#textInput {
+	width: 70%;
+	}
+	.introduction {
+	padding: 2vw;
+	}
+	.botText {
+	padding: 2vw;
+	}
+	.userText {
+	padding: 2vw;
+	}
+	.menuContent {
+	width: 35%;
+	bottom: 5em;
+	font-size: 1.5em;
+	}
+	.mainMenuContent {
+	width: 35%;
+	margin-left: 40%;
+	bottom: 5em;
+	font-size: 1.5em;
 	}
 }

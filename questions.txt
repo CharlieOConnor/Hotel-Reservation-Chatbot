@@ -1,7 +1,5 @@
 What time is check-in/check-out?
 Is there room service?
-How do I submit a complaint?
-Can I extend my stay?
 Why does the pricing change daily?
 What do I do in the event of a fire?
 My stay was unsatisfactory, can I request a refund?
@@ -16,13 +14,14 @@ Is the reception desk 24hrs?
 Are children welcome at the hotel?
 Are pets welcome at the hotel?
 Is this hotel wheelchair accessible?
-Do an rooms provide en-suite bathrooms?
+Do any rooms provide en-suite bathrooms?
 What is a single room?
 What is a double room?
 What is a twin room?
 What is a triple room?
 What is a quad room?
 Does the hotel have its own bar or restaurant?
-How can I contact the hotel directly?
+How can I contact the reception desk if I need anything?
 Can I leave my luggage with the hotel before check-in time?
 Can I make a booking on behalf of another person?
+What local attractions are available nearby?

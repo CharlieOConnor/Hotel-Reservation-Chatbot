@@ -5,37 +5,34 @@
 		<link rel="stylesheet" type="text/css" href="/static/styles.css">
 		<link rel="stylesheet" type="text/css" href="/static/media_queries.css">
 		<link rel="stylesheet" type="text/css" href="/static/auto_complete.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/daterangepicker.css" />
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 		
 		<body>
-			<!--<form action="get" method="post">-->
-			<!--<image id="body_background_image" src="../static/images/pillows.jpg"></image>-->
 			<div id="header">
 				<h3>Hotel Reservation Chatbot<image id="hotel_porter_big" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image></h3>
 			</div>
 			<div id="chatbox">
 				<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>
-				<p class="introduction">Hi, I'm a hotel booking system chatbot. Ask me anything about our hotel.</p>
+				<p class="botText">Hi, I'm a hotel booking system chatbot. Ask me anything about our hotel.</p>
 			</div>
 			<div id='userInput'>
 				<img id="hamburgerMenu" onclick="openMenu()" src="../static/images/hamburger_menu.png" align="left"></img>	
 				<div id="myDropDown" class="menuContent">
 					<a onclick="mainMenuSelect()" onmouseover="playMenuHover()">Main Menu<img id="arrow" src="../static/images/arrow.png" align="right"></img></a>
-					<a onclick="bookARoom(this)" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="reportChat('Report this chat')" onmouseover="playMenuHover()">Report this chat</a>
-					<a onclick="rateThisChat('Rate this chat')" onmouseover="playMenuHover()">Rate this chat</a>
+					<a onclick="getBotResponse('Book a room')" onmouseover="playMenuHover()">Book a room</a>
+					<a onclick="getBotResponse('I have an issue with my booking')" onmouseover="playMenuHover()">Booking related issue</a>
+					<a onclick="getBotResponse('Rate this chat')" onmouseover="playMenuHover()">Rate this chat</a>
 				</div>
 				<div id="mainMenu" class="mainMenuContent">
-					<a onclick="bookARoom(this)" onmouseover="playMenuHover()">Book a room</a>
-					<!--<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Explore Hotel</a>-->
-					<a onclick="offersAndDeals(this)" onmouseover="playMenuHover()">Offers & deals</a>
-					<a onclick="submitSelection(this)" onmouseover="playMenuHover()">Local Attractions</a>
-					<a onclick="travelOptions(this)" onmouseover="playMenuHover()">Travel options</a>
-					<a onclick="bookingRelatedIssue(this)" onmouseover="playMenuHover()">Booking related issue</a>
+					<a onclick="getBotResponse('Book a room')" onmouseover="playMenuHover()">Book a room</a>
+					<a onclick="getBotResponse('Offers and deals')" onmouseover="playMenuHover()">Offers & deals</a>
+					<a onclick="getBotResponse('Local Attractions')" onmouseover="playMenuHover()">Local Attractions</a>
+					<a onclick="getBotResponse('Travel options')" onmouseover="playMenuHover()">Travel options</a>
 				</div>
 				<div id="rate">
 					<input type="radio" id="star5" name="rate" value="5" onclick="botRateChatResponse()"/><label for="star5" title="text">5 stars</label>
@@ -47,7 +44,7 @@
 				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
 				<img id="buttonInput" href="javascript:void(0);" type="submit" onclick="submitInput();playButtonClick();" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>
-			<input id="booking_calendar" type="text" name="user_calendar" style="display:none" value="">
+			<!--<input id="booking_calendar" type="text" name="user_calendar" style="display:none" value="">
 				<select name="rooms" id="rooms" style="display:none">
 					<option value="single">Single - £45</option>
 					<option value="double">Double - £55</option>
@@ -55,12 +52,11 @@
 					<option value="triple">Triple - £60</option>
 					<option value="quad">Quad - £70</option>
 				</select>
-			</input>
+			</input>-->
 			
 			<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 			<script type="text/javascript" src="../static/sounds.js"></script>
 			<script type="text/javascript" src="../static/hamburger_menu.js"></script>
-			<!--</form>-->
 		</body>
 	</head>
 </html>

@@ -25,11 +25,15 @@ font-family: monospace;
 }
 
 button {
-width: 100%;
-height: 5%;
+width: 60%;
+height: 6%;
 position: relative;
-margin-top: 1em;
-margin-bottom: 1em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+margin-left: auto;
+margin-right: auto;
+display: block;
+font-size: 1.2em;
 }
 
 #header {
@@ -47,7 +51,7 @@ padding-left: 5%;
 
 #hotel_porter_small {
 width: 10%;
-padding-top: 5%;
+margin-top: 0.2em;
 padding-left: 1%;
 }
 
@@ -64,6 +68,7 @@ width: 30%;
 flex-grow: 1;
 overflow-y: scroll;
 padding-bottom: 2em;
+padding-top: 1em;
 }
 
 #userInput {
@@ -215,6 +220,22 @@ border-radius: 20px;
 margin-left: 3.5vw;
 padding: 1vw;
 margin-bottom: 0.1em;
+margin-top: 0px;
+}
+
+.botText_for_rooms {
+max-width: 45%;
+width: fit-content;
+background: linear-gradient(#02aab0, #00cdac);
+padding: 1vh;
+text-align: left;
+color: #fff;
+font: 1em Consolas, sans-serif;
+border-radius: 20px;
+margin-left: 3.5vw;
+padding: 1vw;
+margin-bottom: 0.1em;
+margin-top: 0px;
 }
 
 #booking_calendar {
@@ -264,6 +285,7 @@ padding-left: 83%;
 font: 0.8em Consolas, sans-serif;
 padding-left: 13%;
 display: block;
+margin-bottom: 1em;
 }
 
 #rate {
@@ -303,21 +325,50 @@ z-index: -999;
 opacity: 0.5;
 }
 
-#room_image {
+.room_image {
 width: -webkit-fill-available;
 border-radius: 1em;
 }
 
 #room_title_text {
-font-size: 1.5em;
+font-size: 1.4em;
 font-family: monospace;
 font-weight: bold;
-left: 25%;
 position: relative;
 bottom: 0.3em;
+margin-left: auto;
+margin-right: auto;
+display: block;
+text-align: center;
+margin-top: 0.5em;
 }
 
+.daterange {
+margin-left: 3.5vw;
+margin-top: 1vh;
+display: none;
+}
 
+div.daterangepicker.ltr.show-calendar.opensright {
+top:10% !important;
+}
+
+#length_of_stay {
+right: auto;
+margin-left: auto;
+margin-right: auto;
+display: block;
+margin-top: 2vh;
+width: 50%;
+text-align: center;
+align-content: center;
+font-size: 1em;
+}
+
+.nights {
+margin-top: 1vh;
+margin-bottom: 1vh;
+}
 @keyframes wave {
   0%,
   60%,

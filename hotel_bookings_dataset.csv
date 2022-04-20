@@ -1,0 +1,200 @@
+reservation_status,reserved_date,number_of_nights,room_type,maximum_occupancy,price_per_night,reference
+Reserved,24/10/22,13,Triple,5,70,272-OFLFPB-855
+Reserved,24/06/22,3,Double,3,54,711-HWITBX-521
+Reserved,04/09/22,8,Single,2,35,665-RKKVZO-749
+Available, , ,Triple,5,70,
+Available, , ,Single,2,35,
+Reserved,10/10/22,13,Double,3,54,744-MKTFFN-125
+Reserved,21/04/22,1,Twin,4,53,771-OGNZQH-406
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Reserved,13/10/22,7,Single,2,35,990-KOSDAT-243
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Reserved,05/05/22,3,Triple,5,70,157-HIJFSW-492
+Reserved,15/08/22,6,Double,3,54,045-ZIXUMD-293
+Available, , ,Triple,5,70,
+Reserved,13/05/22,9,Triple,5,70,044-FWUWFS-311
+Available, , ,Triple,5,70,
+Available, , ,Twin,4,53,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Reserved,09/10/22,5,Twin,4,53,017-UPFSHS-916
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Reserved,19/12/22,6,Quad,6,83,426-PMYLKQ-124
+Reserved,14/12/22,11,Single,2,35,969-KYPVVP-324
+Reserved,27/11/22,12,Single,2,35,998-UZKGDU-147
+Reserved,19/11/22,4,Double,3,54,700-DDVCKL-623
+Available, , ,Quad,6,83,
+Available, , ,Double,3,54,
+Reserved,15/12/22,3,Double,3,54,486-FCBNIJ-919
+Reserved,29/09/22,12,Triple,5,70,295-IBOQIC-545
+Available, , ,Single,2,35,
+Available, , ,Double,3,54,
+Reserved,04/05/22,6,Double,3,54,203-PHFZER-152
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Twin,4,53,
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Reserved,05/10/22,10,Double,3,54,041-PCATLG-977
+Available, , ,Double,3,54,
+Available, , ,Single,2,35,
+Reserved,29/07/22,14,Quad,6,83,523-TVTSGR-262
+Reserved,27/11/22,13,Quad,6,83,573-SZWDXP-951
+Available, , ,Triple,5,70,
+Available, , ,Single,2,35,
+Reserved,21/11/22,4,Single,2,35,662-GOPFYB-961
+Available, , ,Single,2,35,
+Reserved,27/08/22,1,Single,2,35,996-TKIYLC-293
+Reserved,01/10/22,12,Single,2,35,582-QJNGYX-096
+Available, , ,Double,3,54,
+Available, , ,Quad,6,83,
+Available, , ,Double,3,54,
+Reserved,12/05/22,5,Single,2,35,379-MDLXZQ-731
+Available, , ,Quad,6,83,
+Reserved,24/11/22,14,Triple,5,70,248-ZDVDDX-219
+Reserved,01/07/22,10,Single,2,35,293-DAVMCV-526
+Reserved,16/11/22,2,Single,2,35,777-CWOGTP-375
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Reserved,26/10/22,5,Single,2,35,387-TEAESM-923
+Available, , ,Double,3,54,
+Available, , ,Quad,6,83,
+Available, , ,Twin,4,53,
+Available, , ,Twin,4,53,
+Available, , ,Twin,4,53,
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Available, , ,Double,3,54,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Available, , ,Double,3,54,
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Reserved,21/10/22,10,Single,2,35,879-QEDNKU-058
+Reserved,01/08/22,10,Triple,5,70,705-UQIFPN-448
+Available, , ,Triple,5,70,
+Reserved,13/12/22,11,Double,3,54,877-LCRAPY-270
+Reserved,20/08/22,14,Single,2,35,396-ELHNLF-016
+Reserved,15/05/22,3,Quad,6,83,078-CUNTVI-749
+Available, , ,Single,2,35,
+Reserved,24/09/22,5,Triple,5,70,965-YSLMYQ-105
+Reserved,13/06/22,2,Double,3,54,388-OTLNQE-761
+Available, , ,Double,3,54,
+Available, , ,Twin,4,53,
+Available, , ,Single,2,35,
+Reserved,26/09/22,1,Triple,5,70,804-NLLIMQ-815
+Available, , ,Single,2,35,
+Reserved,27/04/22,8,Twin,4,53,254-YMLYWL-804
+Reserved,24/12/22,3,Double,3,54,175-HURVLM-199
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Twin,4,53,
+Available, , ,Quad,6,83,
+Reserved,14/09/22,8,Triple,5,70,020-GAAVVT-356
+Reserved,30/10/22,9,Quad,6,83,565-TKMXVY-026
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Reserved,22/05/22,4,Double,3,54,265-NZETUQ-171
+Reserved,11/05/22,13,Triple,5,70,968-EEZYKR-076
+Reserved,05/07/22,4,Double,3,54,575-MPFAUE-811
+Reserved,04/12/22,7,Double,3,54,845-VYFJVP-543
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Reserved,26/12/22,2,Twin,4,53,865-SLUSKV-292
+Reserved,12/07/22,2,Single,2,35,637-MXHLNF-980
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Available, , ,Single,2,35,
+Available, , ,Triple,5,70,
+Available, , ,Single,2,35,
+Available, , ,Twin,4,53,
+Reserved,21/10/22,11,Single,2,35,063-FEWXOU-772
+Available, , ,Quad,6,83,
+Reserved,19/09/22,14,Twin,4,53,491-AUFPPQ-340
+Available, , ,Quad,6,83,
+Reserved,22/05/22,9,Quad,6,83,012-GZHJGL-120
+Available, , ,Single,2,35,
+Reserved,11/06/22,9,Twin,4,53,756-SUUFXO-175
+Reserved,29/08/22,9,Quad,6,83,915-KUDGXP-208
+Reserved,31/08/22,1,Double,3,54,982-ZKELCE-551
+Reserved,28/04/22,3,Single,2,35,708-JUKYTY-294
+Available, , ,Single,2,35,
+Reserved,31/05/22,13,Single,2,35,245-ZNIFYB-574
+Available, , ,Quad,6,83,
+Reserved,29/06/22,7,Double,3,54,917-WMTLVE-406
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Twin,4,53,
+Available, , ,Quad,6,83,
+Reserved,01/12/22,2,Single,2,35,234-ADKWWX-578
+Reserved,08/05/22,7,Triple,5,70,321-RQVXSQ-983
+Reserved,12/12/22,14,Twin,4,53,108-CJIRXC-430
+Reserved,02/09/22,7,Double,3,54,109-NPJTIR-367
+Reserved,18/08/22,5,Double,3,54,279-RVMQEV-115
+Available, , ,Double,3,54,
+Reserved,12/05/22,5,Twin,4,53,112-QMSFAG-921
+Available, , ,Single,2,35,
+Reserved,08/09/22,9,Single,2,35,477-OZKJDB-742
+Reserved,30/09/22,12,Double,3,54,195-OMCFAF-255
+Available, , ,Double,3,54,
+Reserved,27/05/22,9,Triple,5,70,876-SFXMMF-224
+Reserved,19/10/22,13,Quad,6,83,627-SIPNLT-971
+Reserved,22/07/22,13,Triple,5,70,061-DRNSMW-897
+Reserved,04/07/22,7,Twin,4,53,429-TKZNRE-225
+Available, , ,Single,2,35,
+Reserved,13/12/22,9,Twin,4,53,098-POQQWW-241
+Available, , ,Quad,6,83,
+Reserved,10/09/22,8,Double,3,54,674-QMLVVL-509
+Reserved,14/08/22,14,Single,2,35,694-UVEUYD-379
+Available, , ,Triple,5,70,
+Available, , ,Quad,6,83,
+Reserved,16/11/22,13,Double,3,54,001-EHABIR-134
+Available, , ,Twin,4,53,
+Reserved,24/08/22,4,Twin,4,53,468-HKSPZS-073
+Available, , ,Double,3,54,
+Available, , ,Double,3,54,
+Reserved,23/07/22,11,Quad,6,83,055-PCWKDG-692
+Available, , ,Quad,6,83,
+Reserved,17/08/22,9,Triple,5,70,253-MFWDIY-214
+Available, , ,Double,3,54,
+Available, , ,Triple,5,70,
+Reserved,03/05/22,7,Single,2,35,511-CGDZKD-198
+Reserved,21/04/22,1,Double,3,54,171-OXXADU-460
+Available, , ,Double,3,54,
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Reserved,20/11/22,9,Single,2,35,785-NHOSUC-308
+Reserved,03/10/22,9,Single,2,35,703-DNBHAD-110
+Reserved,10/05/22,14,Triple,5,70,318-VROHMB-730
+Reserved,19/09/22,4,Double,3,54,636-LOUJET-595
+Reserved,11/07/22,12,Quad,6,83,092-YRIELS-782
+Available, , ,Triple,5,70,
+Reserved,28/10/22,2,Single,2,35,492-YDQWJS-148
+Reserved,17/11/22,11,Single,2,35,353-CSXIBP-066
+Available, , ,Twin,4,53,
+Available, , ,Quad,6,83,
+Available, , ,Double,3,54,
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Quad,6,83,
+Available, , ,Quad,6,83,
+Available, , ,Single,2,35,
+Available, , ,Single,2,35,
+Available, , ,Quad,6,83,
+Available, , ,Triple,5,70,
+Available, , ,Double,3,54,
+Available, , ,Triple,5,70,
+Reserved,05/05/22,9,Single,2,35,040-RKCOUV-767

@@ -4,6 +4,11 @@ var length_of_stay;
 var rowNum;
 var reference;
 
+//Escape dangerous characters to prevent Html injection attacks
+function escapeHTML(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+
 // When a new message is sent to the chatbox element, scroll to the bottom
 function scrollView() {
 	document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
@@ -39,7 +44,7 @@ function removeBotThoughts() {
 // Retrieve bot response
 function getBotResponse(buttonName) {
 	if ($("#textInput").val() !== "") {
-		var rawText = $("#textInput").val();									// Get the user input from the textarea
+		var rawText = escapeHTML($("#textInput").val());						// Get the user input from the textarea
 	}
 	else {
 		var rawText = buttonName;												// Get the user input from the textarea

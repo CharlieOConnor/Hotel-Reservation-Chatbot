@@ -42,15 +42,14 @@ function confirmDates(day_string, day_number, month, year, length_of_stay) {
 	setTimeout(() => { $("#chatbox").append('<button id="no_button" class="confirmationButtons" type="button">No</button>'); }, 1200);
 	setTimeout(() => { playMessageSent() }, 1200);
 	
-	setTimeout(() => { document.getElementById('yes_button').addEventListener("click", function() { botThinking(); removeBotThoughts(); chooseNumberOfPeople(); document.getElementById('yes_button').removeEventListener("click"); document.getElementById('no_button').removeEventListener("click"); }, false); }, 1200);
-	setTimeout(() => { document.getElementById('no_button').addEventListener("click", function() { getBotResponse('Book a room'); document.getElementById('yes_button').removeEventListener("click"); document.getElementById('no_button').removeEventListener("click");}, false); }, 1200);
+	setTimeout(() => { document.getElementById('yes_button').addEventListener("click", function() { botThinking(); removeBotThoughts(); chooseNumberOfPeople(); [...document.getElementsByClassName('confirmationButtons')].forEach(e => e.remove()); }, false); }, 1200);
+	setTimeout(() => { document.getElementById('no_button').addEventListener("click", function() { getBotResponse('Book a room'); [...document.getElementsByClassName('confirmationButtons')].forEach(e => e.remove());}, false); }, 1200);
 	showBotTime(); 
 	scrollView();
 }
 
 function chooseNumberOfPeople()
 {
-	[...document.getElementsByClassName('confirmationButtons')].forEach(e => e.remove());
 	setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>How many people?</span></p>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<select size="4" id="length_of_stay"><option class="nights" value="1">1</option><option class="nights" value="2">2</option><option class="nights" value="3">3</option><option class="nights" value="4">4</option><option class="nights" value="5">5</option><option class="nights" value="6">6</option></select>'); }, 1200);

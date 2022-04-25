@@ -26,9 +26,9 @@ font-family: monospace;
 
 button {
 width: 60%;
-height: 6%;
+height: 10%;
 position: relative;
-margin-top: 0.5em;
+margin-top: 0.3em;
 margin-bottom: 0.5em;
 margin-left: auto;
 margin-right: auto;
@@ -80,7 +80,7 @@ width: 30%;
 }
  
 #textInput {
-width: 55%;
+width: 65%;
 margin-left: 1vw;
 margin-top: 2vh;
 border: none;
@@ -91,10 +91,7 @@ font-weight: bold;
 }
 
 #buttonInput {
-padding-top: 1vw;
-padding-bottom: 1vw;
-padding-left: 1.5vw;
-padding-right: 1.5vw;
+padding: 1vw;
 font-family: monospace;
 font-size: 1em;
 background-color: #90EE90;
@@ -149,7 +146,7 @@ font-weight: bold;
 position: absolute;
 width: 13%;
 margin-left: 15%;
-bottom: 4em;
+bottom: 8em;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 border-radius: 10px;
 font-size: 1.2em;
@@ -260,7 +257,7 @@ height: 5px;
 border-radius: 100%;
 animation: wave 1s linear infinite;
 animation-delay: -0.9s;
-margin-left: 45px;
+margin-left: 3.5em;
 float: left;
 position: relative;
 margin-bottom: 20px;
@@ -278,7 +275,9 @@ margin-left: 0.5em;
 
 #time-user {
 font: 0.8em Consolas, sans-serif;
-padding-left: 83%;
+display: table;
+margin-left: auto;
+padding-right: 2em;
 }
 
 #time-bot {
@@ -344,7 +343,6 @@ margin-top: 0.5em;
 }
 
 .daterange {
-margin-left: 3.5vw;
 margin-top: 1vh;
 display: none;
 }
@@ -378,6 +376,13 @@ margin-bottom: 1vh;
   30% {
     transform: translateY(-15px);
   }
+}
+
+#hotel_location {
+border: 0;
+margin-top: 1em;
+margin-left: 3.5vw;
+border-radius: 20px;
 }
 
 /* Custom Scrollbar */

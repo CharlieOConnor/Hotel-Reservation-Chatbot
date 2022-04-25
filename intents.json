@@ -29,9 +29,9 @@
          "responses": ["Our hotel is located within the Finsbury area of London and can be accessed by tube and bus links."],
          "context": [""]
         },
-		{"tag": "offers",
-         "patterns": ["What deals do you have on?", "What offers are there?", "deals", "offers"],
-         "responses": ["The following is a list of our current offers:"],
+		{"tag": "aboutUs",
+         "patterns": ["Tell me more about this hotel", "I want to learn more about this place", "About us", "What history does this hotel have?", "Tell me about this hotel's history"],
+         "responses": ["The Donvalley hotel was founded in 1865 by brothers Donald Argster and Valleium Argster. It specialized in catering to family groups at affordable prices as a means of nearby accomodation for the local carnivals and festivals in the city. \n\nThat same thinking has continued into the present day where the Donvalley hotel continues to serve its customers with the same vigor and integrity that has allowed it to survive and flourish for over 100 years in the hospitaility industry."],
          "context": [""]
         },
 		{"tag": "attractions",

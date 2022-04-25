@@ -4,24 +4,19 @@ import string # to process standard python strings
 from sklearn.feature_extraction.text import TfidfVectorizer # Generate response
 from sklearn.metrics.pairwise import cosine_similarity
 import warnings
-#warnings.filterwarnings("ignore")
 from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
 from nltk.tokenize import word_tokenize
-
 import pickle
 import numpy as np
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
 import json
 import random
 import csv
 
+model = load_model('chatbot_model.h5')
+
 probability = 0
 intent = ''
-
-#nltk.download('punkt') # first-time use only
-#nltk.download('wordnet') # first-time use only
-#nltk.download('omw-1.4')
 
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))

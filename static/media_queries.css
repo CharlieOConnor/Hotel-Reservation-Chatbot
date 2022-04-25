@@ -49,9 +49,6 @@
 	#time-bot {
 	padding-left: 10%;
 	}
-	#time-user {
-	padding-left: 85%;
-	}
 }
 @media (max-width: 1100px), only screen and (orientation: portrait) {
 	#chatbox {
@@ -98,7 +95,11 @@
 	display: none;
 	}
 	#textInput {
-	font-size: 1.2em;
+	font-size: 1.5em;
+	width: 80%;
+	}
+	#rate {
+	top: 75%;
 	}
 	#hotel_porter_big {
 	width: 7%;
@@ -111,6 +112,9 @@
 	}
 	#time-bot {
 	padding-left: 10%;
+	}
+	#buttonInput {
+	padding: 0.7vw;
 	}
 	.userText {
     font-size: 1.5em;
@@ -140,6 +144,9 @@
 	#hotel_porter_small {
 	padding-top: 6%;
 	}
+	#rate {
+	top: 80%;
+	}
 	.introduction {
 	padding: 2%;
 	}
@@ -158,6 +165,9 @@
 	#hotel_porter_small {
 	display: none;
 	}
+	#textInput {
+	font-size: 1.2em;
+	}
 	.userText {
 	margin-right: 2%;
 	padding: 1.5vw;
@@ -175,9 +185,6 @@
 	}
 	#time-bot {
 	padding-left: 5%;
-	}
-	#time-user {
-	padding-left: 90%;
 	}
 	.menuContent {
 	bottom: 5em;
@@ -201,7 +208,10 @@
 	left: 80px;
 	}
 	#buttonInput {
-	width: 8%;
+	padding: 1.2vw;
+	}
+	#textInput {
+	width: 70%;
 	}
 	.menuContent {
 	width: 30%;
@@ -215,14 +225,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-	#time-user {
-	padding-left: 86%;
-	}
 	#buttonInput {
-	width: 11%;
-	}
-	#textInput {
-	width: 70%;
+	width: 9%;
 	}
 	.introduction {
 	padding: 2vw;
@@ -243,5 +247,14 @@
 	margin-left: 40%;
 	bottom: 5em;
 	font-size: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	#buttonInput {
+	width: 10%;
+	}
+	#textInput {
+	width: 70%;
 	}
 }

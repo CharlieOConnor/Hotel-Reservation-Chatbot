@@ -1,0 +1,6 @@
+auto_complete.css = 	https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+date_range_picker.js = 	https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.js
+date_range_picker.css = https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.css
+moment.js = 		https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/moment.min.js
+jquery-ui.js = 		https://code.jquery.com/ui/1.10.4/jquery-ui.js
+jquery.js = 		https://code.jquery.com/jquery-1.12.4.min.js

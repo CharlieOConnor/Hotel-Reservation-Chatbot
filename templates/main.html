@@ -2,15 +2,16 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=yes">
+		
 		<link rel="stylesheet" type="text/css" href="/static/styles.css">
+		<link rel="stylesheet" type="text/css" href="/static/slider.css">
 		<link rel="stylesheet" type="text/css" href="/static/media_queries.css">
 		<link rel="stylesheet" type="text/css" href="/static/auto_complete.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/static/daterangepicker.css" />
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/date_range_picker.css"/>
+		<script src="/static/jquery.js"></script>
+		<script src="/static/jquery-ui.js"></script>
+		<script src="/static/moment.js"></script>
+		<script src="/static/date_range_picker.js"></script>
 		
 		<body>
 			<div id="header">
@@ -20,6 +21,7 @@
 				<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>
 				<p class="botText">Hi, I'm a hotel booking system chatbot. Ask me anything about our hotel.</p>
 			</div>
+			
 			<div id='userInput'>
 				<img id="hamburgerMenu" onclick="openMenu()" src="../static/images/hamburger_menu.png" align="left"></img>	
 				<div id="myDropDown" class="menuContent">
@@ -30,7 +32,7 @@
 				</div>
 				<div id="mainMenu" class="mainMenuContent">
 					<a onclick="getBotResponse('Book a room')" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="getBotResponse('Offers and deals')" onmouseover="playMenuHover()">Offers & deals</a>
+					<a onclick="getBotResponse('About Us')" onmouseover="playMenuHover()">About us</a>
 					<a onclick="getBotResponse('Local Attractions')" onmouseover="playMenuHover()">Local Attractions</a>
 					<a onclick="getBotResponse('Travel options')" onmouseover="playMenuHover()">Travel options</a>
 				</div>
@@ -43,20 +45,11 @@
 				</div>
 				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
 				<img id="buttonInput" href="javascript:void(0);" type="submit" onclick="submitInput();playButtonClick();" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
-			</div>
-			<!--<input id="booking_calendar" type="text" name="user_calendar" style="display:none" value="">
-				<select name="rooms" id="rooms" style="display:none">
-					<option value="single">Single - £45</option>
-					<option value="double">Double - £55</option>
-					<option value="twin">Twin - £55</option>
-					<option value="triple">Triple - £60</option>
-					<option value="quad">Quad - £70</option>
-				</select>
-			</input>-->
-			
-			<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+			</div>		
+			<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 			<script type="text/javascript" src="../static/sounds.js"></script>
 			<script type="text/javascript" src="../static/hamburger_menu.js"></script>
+			<script type="text/javascript" src="../static/book_a_room.js"></script>
 		</body>
 	</head>
 </html>

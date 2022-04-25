@@ -1,11 +1,3 @@
-var room_list = {
-"single" : 45,
-"double" : 55,
-"twin" : 55,
-"triple" : 65,
-"quad" : 70
-};
-
 var startDate;
 var endDate;
 var length_of_stay;
@@ -53,7 +45,7 @@ function getBotResponse(buttonName) {
 		var rawText = buttonName;												// Get the user input from the textarea
 	}
 	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
-	//var userHtml = '<p class="userText"><span>' + rawText + " " + $(window).height() + " " + $(window).width() +'</span></p>';
+	//var userHtml = '<p class="userText"><span>' + rawText + " " + window.innerHeight + " " + window.innerWidth +'</span></p>';
 	
 	document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot
 	$("#textInput").val("");																		// Reset the text input field contents
@@ -66,13 +58,13 @@ function getBotResponse(buttonName) {
 		removeBotThoughts();
 		setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 		var botHtml = '<p class="botText"><span>' + data[0] + '</span></p>';
-		setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
+		
+		if (data [1] !== "BookingEnquiry") {
+			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
+		}
 		
 		if (data[1] === "rating") {															// data[1] is the intent, if the intent is of a certain category execute a specialized bot response function
 			rateThisChat();
-		}
-		else if (data[1] === "offers") {
-			offersAndDeals();
 		}
 		else if (data[1] === "issue") {
 			bookingRelatedIssue();
@@ -81,7 +73,7 @@ function getBotResponse(buttonName) {
 			travelOptions();
 		}
 		else if (data[1] === "BookingEnquiry") {
-			bookARoom();
+			bookARoom(data[0]);
 		}
 		
 		setTimeout(() => { playMessageSent(); }, 300);
@@ -97,6 +89,16 @@ $("#textInput").keypress(function(event) {
 	if(event.which == 13) { 
 		getBotResponse();
 	}
+});
+
+// Close hamburger menu if user clicks away from it
+$(document).on('click', function(event){
+    var container = $("#hamburgerMenu");
+    if (!container.is(event.target) && 
+        container.has(event.target).length === 0) 
+    {
+        closeMenu();
+    }
 });
 
 // Activate the getBotResponse function if the send message button is selected

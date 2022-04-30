@@ -24,7 +24,7 @@
 			</div>
 			
 			<div id='userInput'>
-				<img id="hamburgerMenu" onclick="openMenu()" src="../static/images/hamburger_menu.png" align="left"></img>	
+				<img id="hamburgerMenu" src="../static/images/hamburger_menu.png" align="left"></img>	
 				<div id="myDropDown" class="menuContent">
 					<a id="mainMenuButton">Main Menu<img id="arrow" src="../static/images/arrow.png" align="right"></img></a>
 					<a id="bookRoomButton">Book a room</a>
@@ -43,8 +43,8 @@
 					<input type="radio" id="star2" name="rate" value="2" onclick="botRateChatResponse()"/><label for="star2" title="text">2 stars</label>
 					<input type="radio" id="star1" name="rate" value="1" onclick="botRateChatResponse()"/><label for="star1" title="text">1 star</label>
 				</div>
-				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
-				<img id="buttonInput" href="javascript:void(0);" type="submit" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
+				<textarea id="textInput" type="text" name="user_input" autocomplete="off" placeholder="Please enter your message here"></textarea>
+				<img id="buttonInput" type="submit" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>		
 			<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 			<script type="text/javascript" src="../static/sounds.js"></script>

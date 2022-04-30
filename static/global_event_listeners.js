@@ -1,14 +1,37 @@
+var input = document.getElementById('textInput');
+
 // Execute the getBotResponse() function if the user selects the enter key
-$("#textInput").keypress(function(event) {
+$("#textInput").keydown(function(event) {
 	if(event.which == 13) { 
-		getBotResponse();
+		if (input.value !== "") 
+		{
+			document.getElementById('ui-id-1').style.display = "none";
+			getBotResponse();
+			
+			// Required to clear the autocomplete input in Firefox
+			document.getElementById('textInput').reset();
+		}
+		else 
+		{
+			alert("Please enter something into the text field below");
+		}
+	return false;
 	}
 });
 
 // Execute the submitInput() function if the user selects the submit button
 $('#buttonInput').click(function(){
-    submitInput();
-	playButtonClick();
+	if (input.value !== "") 
+	{
+		document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
+		setTimeout(() => { document.getElementById("buttonInput").style.backgroundColor = "#90EE90";}, 150);
+		playButtonClick();
+		getBotResponse();
+	}
+	else 
+	{
+		alert("Please enter something into the text field below");
+	}
 });
 
 // Close hamburger menu if user clicks away from it
@@ -35,6 +58,11 @@ $(function() {
 });
 
 //Hamburger Menu Event Listenters
+
+$('#hamburgerMenu').click(function(){
+    openMenu(); 
+});
+
 $('.menuContent').mouseover(function(){
     playMenuHover(); 
 });

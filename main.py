@@ -75,7 +75,7 @@ def main():
         tag = ints[0]['intent']
         list_of_intents = intents_json['intents']
         print(probability)
-        if probability < 0.3 or intent == "":
+        if probability < 0.5 or intent == "":
             intent = 'gibberish'
             return "I am sorry, I didn't understand you. Please retry your query with a little more detail."
         for i in list_of_intents:
@@ -126,7 +126,7 @@ def generate_reference():
     pending_reference = num_list + "-" + letter_list + "-" + num_list2
 
     startDate = request.args['startDate']
-    lengthOfStay = request.args['length_of_stay']
+    lengthOfStay = request.args['lengthOfStay']
     rowNum = int(request.args['rowNum'])
 
     with open('hotel_bookings_dataset.csv', mode='r', newline='') as csv_file:

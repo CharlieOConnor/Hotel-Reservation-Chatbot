@@ -12,32 +12,33 @@ function bookARoom(response)
 		endDate = end.format("MM/DD/YYYY");
   
 		// To calculate the time difference of two dates
-		var Difference_In_Time = new Date(endDate).getTime() - new Date(startDate).getTime();
+		var DifferenceInTime = new Date(endDate).getTime() - new Date(startDate).getTime();
   
 		// To calculate the no. of days between two dates
-		length_of_stay = Math.trunc(Difference_In_Time / (1000 * 3600 * 24));	
-		var day_s = day_name(startDate);
-		var day_n = start.format('D');
-		var month = month_name(startDate);
+		lengthOfStay = Math.trunc(DifferenceInTime / (1000 * 3600 * 24));	
+		var dayString = dayName(startDate);
+		var dayNumber = start.format('D');
+		var month = monthName(startDate);
 		var year  = start.format('YYYY');	
 		
 		[...document.getElementsByClassName('daterange')].forEach(e => e.remove());
 		
-		var datearray1 = startDate.split("/");
-		var datearray2 = endDate.split("/");
+		var dateArray1 = startDate.split("/");
+		var dateArray1 = startDate.split("/");
+		var dateArray2 = endDate.split("/");
 
-		startDate = datearray1[1] + '/' + datearray1[0] + '/' + datearray1[2];
-		endDate = datearray2[1] + '/' + datearray2[0] + '/' + datearray2[2];
+		startDate = dateArray1[1] + '/' + dateArray1[0] + '/' + dateArray1[2];
+		endDate = dateArray2[1] + '/' + dateArray2[0] + '/' + dateArray2[2];
 		
-		confirmDates(day_s, day_n, month, year, length_of_stay);
+		confirmDates(dayString, dayNumber, month, year, lengthOfStay);
 
 	}).show();	}, 1200);
 }
 
-function confirmDates(day_string, day_number, month, year, length_of_stay) {
+function confirmDates(dayString, dayNumber, month, year, lengthOfSstay) {
 	botThinking();
 	removeBotThoughts();
-	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>So just to confirm, you\'re looking for a room on:\n\n' + day_string + " " + day_number + " " + month + " " + year + " for " + length_of_stay + " days." + "\n\nIs that okay?" +'</span></p>'); }, 1100);
+	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>So just to confirm, you\'re looking for a room on:\n\n' + dayString + " " + dayNumber + " " + month + " " + year + " for " + lengthOfStay + " days." + "\n\nIs that okay?" +'</span></p>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<button id="yes_button" class="confirmationButtons" type="button">Yes</button>'); }, 1200);
 	setTimeout(() => { $("#chatbox").append('<button id="no_button" class="confirmationButtons" type="button">No</button>'); }, 1200);
 	setTimeout(() => { playMessageSent() }, 1200);
@@ -45,23 +46,24 @@ function confirmDates(day_string, day_number, month, year, length_of_stay) {
 	setTimeout(() => { document.getElementById('yes_button').addEventListener("click", function() { botThinking(); removeBotThoughts(); chooseNumberOfPeople(); [...document.getElementsByClassName('confirmationButtons')].forEach(e => e.remove()); }, false); }, 1200);
 	setTimeout(() => { document.getElementById('no_button').addEventListener("click", function() { getBotResponse('Book a room'); [...document.getElementsByClassName('confirmationButtons')].forEach(e => e.remove());}, false); }, 1200);
 	showBotTime(); 
-	scrollView();
+	scrollViewBot();
 }
 
 function chooseNumberOfPeople()
 {
 	setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>How many people?</span></p>'); }, 1100);
-	setTimeout(() => { $("#chatbox").append('<select size="4" id="length_of_stay"><option class="nights" value="1">1</option><option class="nights" value="2">2</option><option class="nights" value="3">3</option><option class="nights" value="4">4</option><option class="nights" value="5">5</option><option class="nights" value="6">6</option></select>'); }, 1200);
-	setTimeout(() => { document.getElementById('length_of_stay').addEventListener("click", function() { checkAvailableRooms(this); }, false); }, 1200);
+	setTimeout(() => { $("#chatbox").append('<select size="4" id="lengthOfStay"><option class="nights" value="1">1</option><option class="nights" value="2">2</option><option class="nights" value="3">3</option><option class="nights" value="4">4</option><option class="nights" value="5">5</option><option class="nights" value="6">6</option></select>'); }, 1200);
+	setTimeout(() => { document.getElementById('lengthOfStay').addEventListener("click", function() { checkAvailableRooms(this); }, false); }, 1200);
+	playMessageSent();
 	showBotTime(); 
-	scrollView();
+	scrollViewBot();
 }
 
 function checkAvailableRooms(people) 
 {
 	var people_value = people.selectedOptions[0].text;
-	document.getElementById("length_of_stay").remove();
+	document.getElementById("lengthOfStay").remove();
 	[...document.getElementsByClassName('nights')].forEach(e => e.remove());
 	$("#chatbox").append('<p id="searching" class="botText"><span>Okay, looking for available rooms now...</span></p>');
 	playMessageSent();
@@ -78,31 +80,31 @@ function checkAvailableRooms(people)
 		}
 	});
 	setTimeout(() => { $("#chatbox").append(slider); }, 1100);
-	scrollView();
+	scrollViewBot();
 }
 
-function day_name(custom_date) 
+function dayName(customDate) 
 {
-     var myDate=custom_date;
-     myDate=myDate.split("-");
-     var newDate=myDate[2]+"-"+myDate[1]+"-"+myDate[0];
-     var my_ddate=new Date(newDate).getTime();
+     var myDate = customDate;
+     myDate = myDate.split("-");
+     var newDate = myDate[2]+"-"+myDate[1]+"-"+myDate[0];
+     var myDate = new Date(newDate).getTime();
      var currentDate = new Date(newDate);
-     var day_name = currentDate.getDay();
+     var dayName = currentDate.getDay();
      var days = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-     return days[day_name];
+     return days[dayName];
 }
 
-function month_name(custom_date) 
+function monthName(customDate) 
 {
-     var myDate=custom_date;
-     myDate=myDate.split("-");
-     var newDate=myDate[2]+"-"+myDate[1]+"-"+myDate[0];
-     var my_ddate=new Date(newDate).getTime();
+     var myDate = customDate;
+     myDate = myDate.split("-");
+     var newDate = myDate[2]+"-"+myDate[1]+"-"+myDate[0];
+     var myDate = new Date(newDate).getTime();
      var currentDate = new Date(newDate);
-     var month_name = currentDate.getMonth();
+     var monthName = currentDate.getMonth();
      var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
-     return months[month_name];
+     return months[monthName];
 }
 
 function viewRooms(room_info) 
@@ -140,14 +142,14 @@ function completeBooking(room_info)
 	removeBotThoughts();
 	rowNum = room_info[3];
 	[...document.querySelectorAll('.botText_for_rooms')].forEach(e => e.remove());	
-	$.get("/generate_reference", { startDate: startDate, length_of_stay: length_of_stay, rowNum: rowNum }).done(function(data) {
+	$.get("/generate_reference", { startDate: startDate, lengthOfStay: lengthOfStay, rowNum: rowNum }).done(function(data) {
 		reference = data;
 	});
 	setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
-	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Total for the " + room_info[0] + " room is: " + length_of_stay * room_info[2] + ".00 GBP." + "\n\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nLength of stay: " + length_of_stay + " days" + "\n\nReference: " + reference + "\n\nPlease be ready to pay when you arrive." + '</span></p>'); }, 1100);
+	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Total for the " + room_info[0] + " room is: " + lengthOfStay * room_info[2] + ".00 GBP." + "\n\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nLength of stay: " + lengthOfStay + " days" + "\n\nReference: " + reference + "\n\nPlease be ready to pay when you arrive." + '</span></p>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Is there anything else I can help you with?" + '</span></p>'); }, 1100);
 	playMessageSent();
 	showBotTime();
-	scrollView();
+	scrollViewBot();
 	
 }

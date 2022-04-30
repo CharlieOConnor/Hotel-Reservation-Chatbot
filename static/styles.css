@@ -192,7 +192,7 @@ word-wrap: break-word;
 textarea {
 resize: none;
 padding-top: 0;
-/*overflow: hidden; For Firefox  (keeping it on makes it so I can't see text though */
+overflow: hidden; 
 font-weight: bold;
 background-color: #ffffff;
 }
@@ -279,6 +279,15 @@ animation-delay: -0.5s;
 margin-left: 0.5em;
 }
 
+@keyframes wave {
+  70% {
+    transform: initial;
+  }
+  20% {
+    transform: translateY(-1em);
+  }
+}
+
 #time-user {
 font: 0.8em Consolas, sans-serif;
 display: table;
@@ -332,7 +341,8 @@ opacity: 0.5;
 }
 
 .room_image {
-width: -webkit-fill-available;
+width: -moz-available;          /* WebKit-based browsers will ignore this. */
+width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
 border-radius: 1em;
 }
 
@@ -358,7 +368,7 @@ div.daterangepicker.ltr.show-calendar.opensright {
 top:10% !important;
 }
 
-#length_of_stay {
+#lengthOfStay {
 right: auto;
 margin-left: auto;
 margin-right: auto;
@@ -373,16 +383,6 @@ font-size: 1em;
 .nights {
 margin-top: 1vh;
 margin-bottom: 1vh;
-}
-@keyframes wave {
-  0%,
-  60%,
-  100% {
-    transform: initial;
-  }
-  30% {
-    transform: translateY(-15px);
-  }
 }
 
 #hotel_location {

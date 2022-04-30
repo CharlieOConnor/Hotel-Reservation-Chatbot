@@ -37,7 +37,6 @@ function rateThisChat()
 {
 	$('input[type=radio]').prop('checked',false); 
 	setTimeout( () => { document.getElementById("rate").style.display = "block"; }, 1100);
-
 }
 
 function botRateChatResponse() 
@@ -50,7 +49,7 @@ function botRateChatResponse()
 	setTimeout(() => { playMessageSent(); }, 500);
 	showBotTime();
 	document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-	scrollView();
+	scrollViewBot();
 	$("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1100);
 }
 

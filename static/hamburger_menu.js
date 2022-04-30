@@ -33,19 +33,9 @@ function mainMenuSelect()
 	document.getElementById("mainMenu").style.display = "grid";
 }
 
-function submitSelection(a) 
-{
-	$("#textInput").val(a.innerHTML);
-	getBotResponse();
-	document.getElementById("myDropDown").style.display = "none";
-	document.getElementById("mainMenu").style.display = "none";
-}
-
 function rateThisChat() 
 {
 	$('input[type=radio]').prop('checked',false); 
-	document.getElementById("myDropDown").style.display = "none";
-	document.getElementById("mainMenu").style.display = "none";
 	setTimeout( () => { document.getElementById("rate").style.display = "block"; }, 1100);
 
 }

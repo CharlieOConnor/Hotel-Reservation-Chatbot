@@ -20,21 +20,21 @@
 			<div id="chatbox">
 				<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>
 				<p class="botText">Hi, I'm a hotel booking system chatbot. Ask me anything about our hotel.</p>
+				<noscript>Please enable Javascript to use this chatbot.</noscript>
 			</div>
 			
 			<div id='userInput'>
 				<img id="hamburgerMenu" onclick="openMenu()" src="../static/images/hamburger_menu.png" align="left"></img>	
 				<div id="myDropDown" class="menuContent">
-					<a onclick="mainMenuSelect()" onmouseover="playMenuHover(); mainMenuSelect();">Main Menu<img id="arrow" src="../static/images/arrow.png" align="right"></img></a>
-					<a onclick="getBotResponse('Book a room')" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="getBotResponse('I have an issue with my booking')" onmouseover="playMenuHover()">Booking related issue</a>
-					<a onclick="getBotResponse('Rate this chat')" onmouseover="playMenuHover()">Rate this chat</a>
+					<a id="mainMenuButton">Main Menu<img id="arrow" src="../static/images/arrow.png" align="right"></img></a>
+					<a id="bookRoomButton">Book a room</a>
+					<a id="issueButton">Booking related issue</a>
+					<a id="rateButton">Rate this chat</a>
 				</div>
 				<div id="mainMenu" class="mainMenuContent">
-					<a onclick="getBotResponse('Book a room')" onmouseover="playMenuHover()">Book a room</a>
-					<a onclick="getBotResponse('About Us')" onmouseover="playMenuHover()">About us</a>
-					<a onclick="getBotResponse('Local Attractions')" onmouseover="playMenuHover()">Local Attractions</a>
-					<a onclick="getBotResponse('Travel options')" onmouseover="playMenuHover()">Travel options</a>
+					<a id="aboutUsButton">About us</a>
+					<a id="localAttractionsButton">Local Attractions</a>
+					<a id="travelOptionsButton" >Travel options</a>
 				</div>
 				<div id="rate">
 					<input type="radio" id="star5" name="rate" value="5" onclick="botRateChatResponse()"/><label for="star5" title="text">5 stars</label>
@@ -44,12 +44,13 @@
 					<input type="radio" id="star1" name="rate" value="1" onclick="botRateChatResponse()"/><label for="star1" title="text">1 star</label>
 				</div>
 				<textarea id="textInput" type="text" name="user_input" placeholder="Please enter your message here"></textarea>
-				<img id="buttonInput" href="javascript:void(0);" type="submit" onclick="submitInput();playButtonClick();" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
+				<img id="buttonInput" href="javascript:void(0);" type="submit" oninput="auto_grow(this)" src="../static/images/paper_airplane.png" align="right"></img>
 			</div>		
 			<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 			<script type="text/javascript" src="../static/sounds.js"></script>
 			<script type="text/javascript" src="../static/hamburger_menu.js"></script>
 			<script type="text/javascript" src="../static/book_a_room.js"></script>
+			<script type="text/javascript" src="../static/global_event_listeners.js"></script>
 		</body>
 	</head>
 </html>

@@ -1,5 +1,6 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 import json
 import pickle
 
@@ -7,11 +8,8 @@ import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import gradient_descent_v2
-from keras.regularizers import l2
-from matplotlib import pyplot as plt
 import random
 
-lemmatizer = WordNetLemmatizer()
 words=[]
 classes = []
 documents = []
@@ -63,11 +61,11 @@ for doc in documents:
     # Create our bag of words array with 1, if word match found in current pattern
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)
-    
+
     # output is a '0' for each tag and '1' for current tag (for each pattern)
     output_row = list(output_empty)
     output_row[classes.index(doc[1])] = 1
-    
+
     training.append([bag, output_row])
 # Shuffle our features and turn into np.array
 random.shuffle(training)
@@ -81,7 +79,7 @@ print("Training data created")
 # Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
 # equal to number of intents to predict output intent with softmax
 model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu', kernel_regularizer=l2(0.001)))
+model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
@@ -92,15 +90,7 @@ sgd = gradient_descent_v2.SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nest
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # Fitting and saving the model 
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=250, batch_size=8, validation_split=0.4, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=16, verbose=1)
 model.save('chatbot_model.h5', hist)
 
 print("model created")
-
-plt.plot(hist.history['accuracy'])
-plt.plot(hist.history['val_accuracy'])
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
-plt.legend(['train', 'val'], loc='upper left')
-plt.show()

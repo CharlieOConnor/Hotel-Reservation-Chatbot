@@ -43,23 +43,37 @@ function removeBotThoughts() {
 
 // Retrieve bot response
 function getBotResponse(buttonName) {
-	if ($("#textInput").val() !== "") {
-		var rawText = escapeHTML($("#textInput").val());						// Get the user input from the textarea
-	}
-	else {
-		var rawText = buttonName;												// Get the user input from the textarea
-	}
-	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';	//Assign that value to a new variable
-	//var userHtml = '<p class="userText"><span>' + rawText + " " + window.innerHeight + " " + window.innerWidth +'</span></p>';
 	
-	document.getElementById("textInput").disabled = true;											// Temporarily disable text area until response is posted by bot
-	$("#textInput").val("");																		// Reset the text input field contents
+	// Get the user input from the textarea
+	if ($("#textInput").val() !== "") {
+		var rawText = escapeHTML($("#textInput").val());						
+	}
+	// But otherwise get it from the button innerHTML
+	else {
+		var rawText = buttonName;
+	}
+	
+	//Assign that value to a new variable
+	var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+	
+	// Temporarily disable text area until response is posted by bot
+	document.getElementById("textInput").disabled = true;
+	
+	// Reset the text input field contents	
+	$("#textInput").val("");			
+
+	//Append the contents of the userHTML variable to the frontend
 	$("#chatbox").append(userHtml);
-	showUserTime(); 																				// Current time appended to each message
-	scrollView();																					// Keeps the user field in view
+	
+	// Append the current time to each message
+	showUserTime(); 
+
+	// Keeps the user field in view
+	scrollView();			
 	botThinking();	
 	
-	$.get("/main", { rawText }).done(function(data) {									// Make call to main.py, passing 'rawText' as the user's request and returning 'data' as the bot's answer
+	// Make call to main.py, passing 'rawText' as the user's request and returning 'data' as the bot's answer
+	$.get("/main", { rawText }).done(function(data) {									
 		removeBotThoughts();
 		setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 		var botHtml = '<p class="botText"><span>' + data[0] + '</span></p>';
@@ -67,8 +81,7 @@ function getBotResponse(buttonName) {
 		if (data [1] !== "BookingEnquiry") {
 			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
 		}
-		
-		if (data[1] === "rating") {															// data[1] is the intent, if the intent is of a certain category execute a specialized bot response function
+		if (data[1] === "rating") {															
 			rateThisChat();
 		}
 		else if (data[1] === "issue") {
@@ -84,53 +97,15 @@ function getBotResponse(buttonName) {
 		setTimeout(() => { playMessageSent(); }, 300);
 		showBotTime();
 	});
+	
 	scrollView();
-	document.getElementById("textInput").disabled = false;												// Enable the text field and put the user's cursor inside for the next input
+	document.getElementById("textInput").disabled = false;												
 	setTimeout(() => { 	document.getElementById("textInput").focus();}, 1000);
 }
-
-// Activate the getBotResponse() function if the user selects the enter key
-$("#textInput").keypress(function(event) {
-	if(event.which == 13) { 
-		getBotResponse();
-	}
-});
-
-// Close hamburger menu if user clicks away from it
-$(document).on('click', function(event){
-    var container = $("#hamburgerMenu");
-    if (!container.is(event.target) && 
-        container.has(event.target).length === 0) 
-    {
-        closeMenu();
-    }
-});
 
 // Activate the getBotResponse function if the send message button is selected
 function submitInput() {
 	document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
 	setTimeout(() => { document.getElementById("buttonInput").style.backgroundColor = "#90EE90";}, 150);
-	if (rateChatStrings.includes($("#textInput").val().toLowerCase())) {
-			rateThisChat($("#textInput").val());
-			return;
-	}
-	else if (reportChatStrings.includes($("#textInput").val().toLowerCase())) {
-			reportChat($("#textInput").val());
-			return;
-	}
 	getBotResponse();
 }
-
-// A list of the auto-complete questions in stock, retrieved from main.py as a list
-$(function() {
-	var questions = "";
-	$.get("/questions").done(function(data) {
-		questions = data;
-		$("#textInput").autocomplete({
-			source: questions,
-			minLength: 2,
-			delay: 300,
-			position: { my : "left bottom", at: "left top" }
-		});
-	});
-});

@@ -20,7 +20,7 @@ $("#textInput").keydown(function(event) {
 });
 
 // Execute the submitInput() function if the user selects the submit button
-$('#buttonInput').click(function(){
+$('#buttonInput').click(function() {
 	if (input.value !== "") 
 	{
 		document.getElementById("buttonInput").style.backgroundColor = "#6bbf6b";
@@ -35,7 +35,7 @@ $('#buttonInput').click(function(){
 });
 
 // Close hamburger menu if user clicks away from it
-$(document).on('click', function(event){
+$(document).on('click', function(event) {
     var container = $("#hamburgerMenu");
     if (!container.is(event.target) && container.has(event.target).length === 0) 
     {
@@ -59,54 +59,58 @@ $(function() {
 
 //Hamburger Menu Event Listenters
 
-$('#hamburgerMenu').click(function(){
+$('#hamburgerMenu').click(function() {
     openMenu(); 
 });
 
-$('.menuContent').mouseover(function(){
+$('.menuContent').mouseover(function() {
     playMenuHover(); 
 });
 
-$('.mainMenuContent').mouseover(function(){
+$('.mainMenuContent').mouseover(function() {
     playMenuHover(); 
 });
 
-$('#mainMenuButton').click(function(){
+$('#mainMenuButton').click(function() {
     closeMenu();
 });
 
-$('#mainMenuButton').mouseover(function(){
+$('#mainMenuButton').mouseover(function() {
 	mainMenuSelect();
 });
 
-$('#bookRoomButton').click(function(){
+$('#bookRoomButton').click(function() {
     closeMenu();
 	getBotResponse($('#bookRoomButton').text());
 });
 
-$('#issueButton').click(function(){
+$('#issueButton').click(function() {
     closeMenu();
 	getBotResponse($('#issueButton').text());
 });
 
-$('#rateButton').click(function(){
+$('#rateButton').click(function() {
     closeMenu();
 	getBotResponse($('#rateButton').text());
 });
 
-$('#aboutUsButton').click(function(){
+$('#aboutUsButton').click(function() {
     closeMenu();
 	getBotResponse($('#aboutUsButton').text());
 });
 
-$('#localAttractionsButton').click(function(){
+$('#localAttractionsButton').click(function() {
     closeMenu();
 	getBotResponse($('#localAttractionsButton').text());
 });
 
-$('#travelOptionsButton').click(function(){
+$('#travelOptionsButton').click(function() {
     closeMenu();
 	getBotResponse($('#travelOptionsButton').text());
+});
+$('#helpButton').click(function() {
+    closeMenu();
+	getBotResponse($('#helpButton').text());
 });
 
 

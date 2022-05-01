@@ -316,6 +316,7 @@ display: none;
 position:absolute;
 top:-9999px;
 }
+
 #rate:not(:checked) > label {
 float:right;
 width:1em;
@@ -325,9 +326,11 @@ cursor:pointer;
 font-size:30px;
 color:#ccc;
 }
+
 #rate:not(:checked) > label:before {
 content: '★ ';
 }
+
 #rate > input:checked ~ label {
 color: #ffc700;    
 }

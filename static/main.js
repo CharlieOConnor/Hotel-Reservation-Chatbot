@@ -44,11 +44,10 @@ function removeBotThoughts() {
 // Retrieve bot response
 function getBotResponse(buttonName) {
 	
-	// Get the user input from the textarea
+	// Get the user input from the textarea or from the element innerHTML
 	if ($("#textInput").val() !== "") {
 		var rawText = escapeHTML($("#textInput").val());						
 	}
-	// But otherwise get it from the button innerHTML
 	else {
 		var rawText = buttonName;
 	}
@@ -62,15 +61,11 @@ function getBotResponse(buttonName) {
 	// Reset the text input field contents	
 	$("#textInput").val("");			
 
-	//Append the contents of the userHTML variable to the frontend
+	// Append the contents of the userHTML variable to the frontend
 	$("#chatbox").append(userHtml);
 	
-	// Append the current time to each message
-	showUserTime(); 
-	
-	scrollViewUser();
-
-	// Keeps the user field in view			
+	showUserTime(); 	
+	scrollViewUser();		
 	botThinking();	
 	
 	// Make call to main.py, passing 'rawText' as the user's request and returning 'data' as the bot's answer
@@ -79,7 +74,7 @@ function getBotResponse(buttonName) {
 		setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 		var botHtml = '<p class="botText"><span>' + data[0] + '</span></p>';
 		
-		if (data [1] !== "BookingEnquiry") {
+		if (data[1] !== "BookingEnquiry") {
 			setTimeout(() => { $("#chatbox").append(botHtml); }, 1100);
 		}
 		if (data[1] === "rating") {															

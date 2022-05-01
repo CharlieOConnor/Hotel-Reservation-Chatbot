@@ -91,7 +91,6 @@ context,response,text,label
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",I have a problem with my booking,issue
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",I want to report a problem with my booking,issue
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",My booking is wrong,issue
-[''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",I need help with my booking,issue
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",I want to talk to a human,issue
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",Can I speak to a person?,issue
 [''],"[""If you have an issue with your booking, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk""]",Is there someone on staff I can talk to?,issue
@@ -163,7 +162,7 @@ context,response,text,label
 [''],"[""Guests can amend their booking up until the before they're due, but will lose their booking deposit if they do so.""]",Can I cancel/amend my booking?,cancel-amend-booking
 [''],"[""Guests can amend their booking up until the before they're due, but will lose their booking deposit if they do so.""]",Can I edit my booking?,cancel-amend-booking
 [''],"[""Guests can amend their booking up until the before they're due, but will lose their booking deposit if they do so.""]",I want to make a change to my booking,cancel-amend-booking
-[''],"[""Children are welcome at our hotel, as long as at least one member of the party is 18+.""]",Are children welcome at the hotel?,children
+[''],"[""Children are welcome at our hotel, as long as at least one member of the party is 18+.""]",Are children allowed at the hotel?,children
 [''],"[""Children are welcome at our hotel, as long as at least one member of the party is 18+.""]",Can bookings be made with children?,children
 [''],"[""Children are welcome at our hotel, as long as at least one member of the party is 18+.""]",Can I book a family room?,children
 [''],"[""Pets are not allowed at the hotel"", ""Unfortunately we do not allow animals at our hotel]",Do you allow pets?,pets
@@ -185,12 +184,12 @@ context,response,text,label
 [''],"[""Our hotel has a holding area that guests can use for their luggage before checking in, behind the reception desk.""]",Can I leave my luggage with the hotel before check-in time?,luggage-storage
 [''],"[""Our hotel has a holding area that guests can use for their luggage before checking in, behind the reception desk.""]",Can I leave my luggage at the hotel before check-in time?,luggage-storage
 [''],"[""Guests can make a booking on behalf of another person, but the billpayer must be included in the guest list.""]",Can I make a booking on behalf of another person?,booking-for-another
-[''],,,
-[''],,,
-[''],,,
-[''],,,
-[''],,,
-[''],,,
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",help,help
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",I need help,gelp
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",I don't understand this process,help
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",What do I do?,help
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",How do I use this chatbot?,help
+[''],"[""No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178.""]",What do I type in?,help
 [''],,,
 [''],,,
 [''],,,

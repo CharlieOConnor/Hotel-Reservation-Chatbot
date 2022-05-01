@@ -28,53 +28,50 @@ app = Flask(__name__)
 def index():
     return render_template("main.html")
 
+# Predict the intent of the user's message and return the response 
 @app.route("/main")
 def main():
-    # Reading in the data
-    def clean_up_sentence(sentence):
-        lemmer = nltk.stem.WordNetLemmatizer()
-        # tokenize the pattern - split words into array
-        sentence_words = nltk.word_tokenize(sentence)
-        # stem each word - create short form for word
-        sentence_words = [lemmer.lemmatize(word.lower()) for word in sentence_words]
-        return sentence_words
 
-    # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
-    def bow(sentence, words, show_details=True):
-        # tokenize the pattern
-        sentence_words = clean_up_sentence(sentence)
-        # bag of words - matrix of N words, vocabulary matrix
+    def sanitizeSentence(sentence):
+        lem = nltk.stem.WordNetLemmatizer()
+        # Split words into array
+        list_of_words = nltk.word_tokenize(sentence)
+        # Lemmatize each word - to create a meaningful base form
+        list_of_words = [lem.lemmatize(word.lower()) for word in list_of_words]
+        return list_of_words
+
+    # Return a bag of words array, 1 for each word in the bag that exists in the sentence, 0 otherwise
+    def bagOfWords(sentence, words):
+        list_of_words = sanitizeSentence(sentence)
         bag = [0]*len(words)  
-        for s in sentence_words:
-            for i,w in enumerate(words):
-                if w == s: 
-                    # assign 1 if current word is in the vocabulary position
-                    bag[i] = 1
-                    if show_details:
-                        print ("found in bag: %s" % w)
+        for list_word in list_of_words:
+            for count, word in enumerate(words):
+                if word == list_word: 
+                    bag[count] = 1
         return(np.array(bag))
 
-    def predict_class(sentence, model):
+    # Predict responses and sort by probability
+    def predictClass(sentence, model):
         global probability
         global intent
 
-        p = bow(sentence, words,show_details=False)
-        res = model.predict(np.array([p]))[0]
+        vocab_matrix = bagOfWords(sentence, words)
+        res = model.predict(np.array([vocab_matrix]))[0]
         results = [[i,r] for i,r in enumerate(res)]
-        # sort by strength of probability
         results.sort(key=lambda x: x[1], reverse=True)
         return_list = []
-        for r in results:
-            return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        for result in results:
+            return_list.append({"intent": classes[result[0]], "probability": str(result[1])})
         probability = float(return_list[0]['probability'])
         intent = return_list[0]['intent']
         return return_list
 
-    def getResponse(ints, intents_json):
+    # Return response based on level of probability
+    def getResponse(ints_and_probs, intents_json):
         global intent
-        tag = ints[0]['intent']
+        tag = ints_and_probs[0]['intent']
         list_of_intents = intents_json['intents']
-        print(probability)
+        print("Probability of correct intent is: " + str(probability))
         if probability < 0.5 or intent == "":
             intent = 'gibberish'
             return "I am sorry, I didn't understand you. Please retry your query with a little more detail."
@@ -84,13 +81,14 @@ def main():
                 break
         return result
 
-    def chatbot_response(msg):
-        ints = predict_class(msg, model)
-        res = getResponse(ints, intents)
-        return res
+    # Load the pre-trained model and return the highest probability response
+    def chatbotResponse(message):
+        intents_and_probabilities = predictClass(message, model)
+        response = getResponse(intents_and_probabilities, intents)
+        return response
 
     message = request.args["rawText"]
-    return jsonify(chatbot_response(message), intent)
+    return jsonify(chatbotResponse(message), intent)
 
 # Open the questions file and return it as a json array
 @app.route("/questions")

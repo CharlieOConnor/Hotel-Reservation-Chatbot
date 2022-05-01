@@ -40,7 +40,7 @@
          "context": [""]
         },
 		{"tag": "issue",
-         "patterns": ["I have an issue with my booking", "I want to report a problem with my booking", "My booking is wrong", "I need help with my booking", "I want to speak to a human", "Get me a manager", "I want a person to talk to", "Is there someone I can talk to?", "Can I chat with someone from staff?", "This is all wrong", "You don't understand what I'm saying", "You're not listening to me", "I want to report you", "Complaint"],
+         "patterns": ["I have an issue with my booking", "I want to report a problem with my booking", "My booking is wrong", "I want to speak to a human", "Get me a manager", "I want a person to talk to", "Is there someone I can talk to?", "Can I chat with someone from staff?", "This is all wrong", "You don't understand what I'm saying", "You're not listening to me", "I want to report you", "Complaint"],
          "responses": ["If you have an issue with your booking or something else related to your stay, you can call us on 01426 11178 or email us at customerservice@donvalleyhotel.co.uk"],
          "context": [""]
         },
@@ -115,7 +115,7 @@
          "context": [""]
         },
 		{"tag": "children",
-         "patterns": ["Are children welcome at the hotel?", "Can bookings be made with children?", "Can I book a family room?"],
+         "patterns": ["Are children allowed at the hotel?", "Can bookings be made with children?", "Can I book a family room?"],
          "responses": ["Children are welcome at our hotel, as long as at least one member of the party is 18+."],
          "context": [""]
         },
@@ -159,9 +159,9 @@
          "responses": ["Guests can make a booking on behalf of another person, but the billpayer must be included in the guest list."],
          "context": [""]
         },
-		{"tag": "",
-         "patterns": [""],
-         "responses": [""],
+		{"tag": "help",
+         "patterns": ["help", "I don't understand this process", "What do I do?", "I need assistance", "How do I use this chatbot?", "What do I type in?"],
+         "responses": ["No worries, friend. If you're having trouble working out how to use me, type (Book a room) or select it in the menu to begin the reservation process. Then just follow the steps as they're shown.\n\nIf you have any other questions or queries, I will do my best to answer them! Otherwise, you can contact the reservation desk at 01426 11178."],
          "context": [""]
         }
 	]

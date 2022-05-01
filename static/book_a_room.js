@@ -1,7 +1,6 @@
 var slider;
 
-function bookARoom(response) 
-{
+function bookARoom(response) {
 	var botHtml = '<p class="botText"><span>' + response + '</span><input type="text" class="daterange"/></p>';
 	
 	document.getElementById("myDropDown").style.display = "none";
@@ -49,8 +48,7 @@ function confirmDates(dayString, dayNumber, month, year, lengthOfSstay) {
 	scrollViewBot();
 }
 
-function chooseNumberOfPeople()
-{
+function chooseNumberOfPeople()	{
 	setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>How many people?</span></p>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<select size="4" id="lengthOfStay"><option class="nights" value="1">1</option><option class="nights" value="2">2</option><option class="nights" value="3">3</option><option class="nights" value="4">4</option><option class="nights" value="5">5</option><option class="nights" value="6">6</option></select>'); }, 1200);
@@ -60,8 +58,7 @@ function chooseNumberOfPeople()
 	scrollViewBot();
 }
 
-function checkAvailableRooms(people) 
-{
+function checkAvailableRooms(people) {
 	var people_value = people.selectedOptions[0].text;
 	document.getElementById("lengthOfStay").remove();
 	[...document.getElementsByClassName('nights')].forEach(e => e.remove());
@@ -83,8 +80,7 @@ function checkAvailableRooms(people)
 	scrollViewBot();
 }
 
-function dayName(customDate) 
-{
+function dayName(customDate) {
      var myDate = customDate;
      myDate = myDate.split("-");
      var newDate = myDate[2]+"-"+myDate[1]+"-"+myDate[0];
@@ -95,8 +91,7 @@ function dayName(customDate)
      return days[dayName];
 }
 
-function monthName(customDate) 
-{
+function monthName(customDate) {
      var myDate = customDate;
      myDate = myDate.split("-");
      var newDate = myDate[2]+"-"+myDate[1]+"-"+myDate[0];
@@ -107,37 +102,30 @@ function monthName(customDate)
      return months[monthName];
 }
 
-function viewRooms(room_info) 
-{	
-	if(room_info[0] == "Single") 
-	{
+function viewRooms(room_info) {	
+	if(room_info[0] == "Single") {
 		setTimeout(() => { $("#slides").append('<p id="images" class="botText_for_rooms"><image class="room_image" src="../static/images/single_room.jpg"></image><span id="room_title_text">Single Room</span><span id="room_title_text">' + room_info[2] + ".00 GBP" + '</span><button id="Single" class="room_button" type="button">Book Now!</button>Book this room in the next 3 days to get 15% off!</p>'); }, 1100);
 		setTimeout(() => { document.getElementById('Single').addEventListener("click", function() { completeBooking(room_info); }, false); }, 1100);
 	}
-	else if (room_info[0] == "Double")
-	{
+	else if (room_info[0] == "Double") {
 		setTimeout(() => { $("#slides").append('<p id="images" class="botText_for_rooms"><image class="room_image" src="../static/images/double_room.jpg"></image><span id="room_title_text">Double Room</span><span id="room_title_text">' + room_info[2] + ".00 GBP" + '</span><button id="Double" class="room_button" type="button">Book Now!</button>Book this room in the next 3 days to get 15% off!</p>'); }, 1100);
 		setTimeout(() => { document.getElementById('Double').addEventListener("click", function() { completeBooking(room_info); }, false); }, 1100);
 	}
-	else if (room_info[0] == "Twin")
-	{
+	else if (room_info[0] == "Twin") {
 		setTimeout(() => { $("#slides").append('<p id="images" class="botText_for_rooms"><image class="room_image" src="../static/images/twin_room.jpg"></image><span id="room_title_text">Twin Room</span><span id="room_title_text">' + room_info[2] + ".00 GBP" + '</span><button id="Twin" class="room_button" type="button">Book Now!</button>Book this room in the next 3 days to get 15% off!</p>'); }, 1100);
 		setTimeout(() => { document.getElementById('Twin').addEventListener("click", function() { completeBooking(room_info); }, false); }, 1100);
 	}
-	else if (room_info[0] == "Triple")
-	{
+	else if (room_info[0] == "Triple") {
 		setTimeout(() => { $("#slides").append('<p id="images" class="botText_for_rooms"><image class="room_image" src="../static/images/triple_room.jpg"></image><span id="room_title_text">Triple Room</span><span id="room_title_text">' + room_info[2] + ".00 GBP" + '</span><button id="Triple" class="room_button" type="button">Book Now!</button>Book this room in the next 3 days to get 15% off!</p>'); }, 1100);
 		setTimeout(() => { document.getElementById('Triple').addEventListener("click", function() { completeBooking(room_info); }, false); }, 1100);
 	}
-	else if (room_info[0] == "Quad")
-	{
+	else if (room_info[0] == "Quad") {
 		setTimeout(() => { $("#slides").append('<p id="images" class="botText_for_rooms"><image class="room_image" src="../static/images/quad_room.jpg"></image><span id="room_title_text">Quad Room</span><span id="room_title_text">' + room_info[2] + ".00 GBP" + '</span><button id="Quad" class="room_button" type="button">Book Now!</button>Book this room in the next 3 days to get 15% off!</p>'); }, 1100);
 		setTimeout(() => { document.getElementById('Quad').addEventListener("click", function() { completeBooking(room_info); }, false); }, 1100);
 	}
 }
 
-function completeBooking(room_info) 
-{
+function completeBooking(room_info) {
 	botThinking(); 
 	removeBotThoughts();
 	rowNum = room_info[3];

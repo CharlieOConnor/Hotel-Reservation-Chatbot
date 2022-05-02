@@ -1,7 +1,7 @@
 import nltk
 import random
-import string # to process standard python strings
-from sklearn.feature_extraction.text import TfidfVectorizer # Generate response
+import string
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import warnings
 from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
@@ -12,6 +12,10 @@ from keras.models import load_model
 import json
 import random
 import csv
+
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 model = load_model('chatbot_model.h5')
 

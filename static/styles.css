@@ -87,8 +87,8 @@ width: 30%;
  
 #textInput {
 width: 65%;
-margin-left: 1vw;
-margin-top: 2vh;
+margin-left: 1.5em;
+margin-top: 1.2em;
 border: none;
 outline: none;
 font-family: monospace;
@@ -97,16 +97,16 @@ font-weight: bold;
 }
 
 #buttonInput {
-padding: 1vw;
+padding: 1.5em;
 font-family: monospace;
 font-size: 1em;
 background-color: #90EE90;
-width: 7%;
+width: 2em;
 }
 
 #hamburgerMenu {
-width: 6%;
-height: 60%;
+width: 2em;
+height: 3em;
 padding-left: 0.7em;
 padding-top: 0.7em;
 }

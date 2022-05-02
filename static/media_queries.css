@@ -96,7 +96,7 @@
 	}
 	#textInput {
 	font-size: 1.5em;
-	width: 80%;
+	width: 75%;
 	}
 	#rate {
 	top: 75%;
@@ -114,7 +114,8 @@
 	padding-left: 10%;
 	}
 	#buttonInput {
-	padding: 0.7vw;
+	padding: 2em;
+	width: 3em;
 	}
 	.userText {
     font-size: 1.5em;
@@ -147,6 +148,9 @@
 	#rate {
 	top: 80%;
 	}
+	#hamburgerMenu {
+	height: 4em;
+	}
 	.introduction {
 	padding: 2%;
 	}
@@ -166,7 +170,7 @@
 	display: none;
 	}
 	#textInput {
-	font-size: 1.2em;
+	font-size: 1.5em;
 	}
 	.userText {
 	margin-right: 2%;
@@ -207,9 +211,7 @@
 	bottom: 20px;
 	left: 80px;
 	}
-	#buttonInput {
-	padding: 1.2vw;
-	}
+
 	#textInput {
 	width: 70%;
 	}
@@ -225,8 +227,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-	#buttonInput {
-	width: 9%;
+	#textInput {
+	width: 65%;
 	}
 	.introduction {
 	padding: 2vw;
@@ -251,10 +253,16 @@
 }
 
 @media only screen and (max-width: 500px) {
-	#buttonInput {
-	width: 10%;
-	}
 	#textInput {
-	width: 70%;
+	width: 60%;
+	font-size: 1.2em;
+	}
+	#buttonInput {
+	width: 2em;
 	}
 }
+
+@media only screen and (max-width: 400px) {
+	#textInput {
+	width: 55%;
+	}

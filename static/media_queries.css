@@ -85,11 +85,14 @@
 	}
 }
 @media only screen and (max-width: 1000px) {
+	body {
+	height: 85vh;
+	}
 	#chatbox {
-	width: 100%
+	width: 100%;
 	}
 	#userInput {
-	width: 100%
+	width: 100%;
 	}
 	#header {
 	display: none;
@@ -97,6 +100,18 @@
 	#textInput {
 	font-size: 1.5em;
 	width: 75%;
+	}
+	#rights {
+	display: block;
+    padding-top: 6.3vh;
+    padding-bottom: 2vh;
+    padding-left: 1em;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    font-family: monospace;
+    font-size: 1.5em;
+    font-style: italic;
 	}
 	#rate {
 	top: 75%;
@@ -249,6 +264,13 @@
 	margin-left: 40%;
 	bottom: 5em;
 	font-size: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	#rights {
+	font-size: 1em;
+	padding-bottom: 4vh;
 	}
 }
 

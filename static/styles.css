@@ -1,4 +1,4 @@
-html, body {
+body {
 font-family: Garamond, Georgia, serif;
 background-color: black;
 display: flex;
@@ -102,6 +102,11 @@ font-family: monospace;
 font-size: 1em;
 background-color: #90EE90;
 width: 2em;
+}
+
+#rights {
+background: linear-gradient(#ffffff, #eaf4f3);
+display: none;
 }
 
 #hamburgerMenu {

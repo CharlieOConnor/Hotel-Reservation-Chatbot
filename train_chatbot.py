@@ -1,96 +1,93 @@
-import nltk
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
-import json
-import pickle
-
-import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import gradient_descent_v2
+import nltk
+import json
+import pickle
+import numpy as np
 import random
 
-words=[]
-classes = []
-documents = []
-ignore_words = ['?', '!']
-data_file = open('intents.json').read()
-intents = json.loads(data_file)
+words = []
+tags = []
+pattern_intent = []
+training = []
+lemmatizer = nltk.stem.WordNetLemmatizer()
 
-for intent in intents['intents']:
-    for pattern in intent['patterns']:
+with open('intents.json') as file:
+    intents = json.load(file)
 
-        # tokenize each word
-        w = nltk.word_tokenize(pattern)
-        words.extend(w)
-        # add documents in the corpus
-        documents.append((w, intent['tag']))
+# split each 'pattern' into its individual words and build a corpus from it
+def tokenize():
+    for intent in intents['intents']:
+        for pattern in intent['patterns']:
 
-        # add to our classes list
-        if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+            # Tokenize the words in each pattern
+            word = nltk.word_tokenize(pattern)          
+            # Gradually combine the individual arrays (build a corpus)
+            words.extend(word)
+            # Create a tuple out of each pattern element and its registered intent
+            pattern_intent.append((word, intent['tag']))
+            # Add the tags in the json file to an array
+            if intent['tag'] not in tags:
+                tags.append(intent['tag'])
 
-# lemmaztize and lower each word and remove duplicates
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
-words = sorted(list(set(words)))
-# sort classes
-classes = sorted(list(set(classes)))
-# documents = combination between patterns and intents
-print (len(documents), "documents")
-# classes = intents
-print (len(classes), "classes", classes)
-# words = all words, vocabulary
-print (len(words), "unique lemmatized words", words)
+# Reduce each word to its base dictionary form
+def lemmatize():
+    global words
+    global tags
+    
+    words = [lemmatizer.lemmatize(word.lower()) for word in words]
+    words = sorted(list(set(words)))
+    tags = sorted(list(set(tags)))
 
+# Generate training data 
+def trainingDataBuild():
+    for patInt in pattern_intent:
+        bag = []
+        pattern_words = [lemmatizer.lemmatize(word.lower()) for word in patInt[0]]
+
+        for word in words:
+            if word in pattern_words:
+                bag.append(1)
+            else:
+                bag.append(0)
+
+        output_row = list(output)
+        output_row[tags.index(patInt[1])] = 1
+        training.append([bag, output_row])
+
+# Train model on generated training data
+def trainModel():
+    global training
+    
+    random.shuffle(training)
+    training = np.array(training, dtype=object)
+    train_patterns = list(training[:,0])
+    train_intents = list(training[:,1])
+
+    # 3 layered model. First layer 256 neurons, second layer 128 and third equal to
+    # the number of intents. Dropout present to prevent neurons from overfitting on data
+    model = Sequential()
+    model.add(Dense(256, input_shape=(len(train_patterns[0]),), activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(128, activation='relu'))
+    model.add(Dropout(0.6))
+    model.add(Dense(len(train_intents[0]), activation='softmax'))
+
+    # Model compiled with gradient descent for maximum accuracy for this use case
+    sgd = gradient_descent_v2.SGD(learning_rate=0.01, decay=0.001, momentum=0.95)
+    model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+    # Fitting and saving the model 
+    fitting_model = model.fit(np.array(train_patterns), np.array(train_intents), epochs=150, batch_size=16, verbose=1)
+    model.save('chatbot_model.h5', fitting_model)
+
+tokenize()
+lemmatize()
 
 pickle.dump(words,open('words.pkl','wb'))
-pickle.dump(classes,open('classes.pkl','wb'))
+pickle.dump(tags,open('tags.pkl','wb'))
+output = [0] * len(tags)
 
-# Create our training data
-training = []
-# Create an empty array for our output
-output_empty = [0] * len(classes)
-# Training set, bag of words for each sentence
-for doc in documents:
-    # Initialize our bag of words
-    bag = []
-    # List of tokenized words for the pattern
-    pattern_words = doc[0]
-    # Lemmatize each word - create base word, in attempt to represent related words
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
-    # Create our bag of words array with 1, if word match found in current pattern
-    for w in words:
-        bag.append(1) if w in pattern_words else bag.append(0)
-
-    # output is a '0' for each tag and '1' for current tag (for each pattern)
-    output_row = list(output_empty)
-    output_row[classes.index(doc[1])] = 1
-
-    training.append([bag, output_row])
-# Shuffle our features and turn into np.array
-random.shuffle(training)
-training = np.array(training, dtype=object)
-# Create train and test lists. X - patterns, Y - intents
-train_x = list(training[:,0])
-train_y = list(training[:,1])
-print("Training data created")
-
-
-# Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
-# equal to number of intents to predict output intent with softmax
-model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
-
-# Compile model. Stochastic gradient descent with Nesterov accelerated gradient gives good results for this model
-sgd = gradient_descent_v2.SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-
-# Fitting and saving the model 
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=16, verbose=1)
-model.save('chatbot_model.h5', hist)
-
-print("model created")
+trainingDataBuild()
+trainModel()

@@ -69,11 +69,18 @@ function checkAvailableRooms(people) {
 	setTimeout(() => { document.getElementById('searching').remove(); }, 1100);
 	
 	$.get("/room_availability", { people_value }).done(function(data) {
-		slider = '<div id="slides"></div>';
-		
-		for (let i = 0; i < data.length; i++)
-		{
-			viewRooms(data[i]);
+		if(typeof(data) === "string") {
+			setTimeout(() => { $("#chatbox").append('<p id="searching" class="botText"><span>' + data + '</span></p>'); }, 1100);
+			playMessageSent();
+			showBotTime();
+		}
+		else {
+			slider = '<div id="slides"></div>';
+			
+			for (let i = 0; i < data.length; i++)
+			{
+				viewRooms(data[i]);
+			}
 		}
 	});
 	setTimeout(() => { $("#chatbox").append(slider); }, 1100);
@@ -134,7 +141,7 @@ function completeBooking(room_info) {
 		reference = data;
 	});
 	setTimeout(() => { $("#chatbox").append('<image id="hotel_porter_small" src="../static/images/hotel_porter_coquet_adrian.png" align="left"</image>'); }, 1100);
-	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Total for the " + room_info[0] + " room is: " + lengthOfStay * room_info[2] + ".00 GBP." + "\n\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nLength of stay: " + lengthOfStay + " days" + "\n\nReference: " + reference + "\n\nPlease be ready to pay when you arrive." + '</span></p>'); }, 1100);
+	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Total for the " + room_info[0] + " room is: " + lengthOfStay * room_info[2] + ".00 GBP." + "\n\nStart Date: " + startDate + "\nEnd Date: " + endDate + "\nLength of stay: " + lengthOfStay + " days" + "\n\nReference:\n" + reference + "\n\nPlease be ready to pay when you arrive." + '</span></p>'); }, 1100);
 	setTimeout(() => { $("#chatbox").append('<p class="botText"><span>' + "Is there anything else I can help you with?" + '</span></p>'); }, 1100);
 	playMessageSent();
 	showBotTime();

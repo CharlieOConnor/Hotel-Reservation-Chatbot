@@ -1,30 +1,26 @@
 import nltk
 import random
 import string
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import warnings
-from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
-from nltk.tokenize import word_tokenize
 import pickle
 import numpy as np
-from keras.models import load_model
 import json
 import random
 import csv
+
+from keras.models import load_model
+from flask import Flask, render_template, request, jsonify
+from nltk.tokenize import word_tokenize
 
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 
-model = load_model('chatbot_model.h5')
-
 probability = 0
 intent = ''
-
+model = load_model('chatbot_model.h5')
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+tags = pickle.load(open('tags.pkl','rb'))
 
 app = Flask(__name__)
 
@@ -35,19 +31,18 @@ def index():
 # Predict the intent of the user's message and return the response 
 @app.route("/main")
 def main():
-
-    def sanitizeSentence(sentence):
+    
+    # Convert user input into array of words and lemmatize them
+    def sanitizeSentence(message):
         lem = nltk.stem.WordNetLemmatizer()
-        # Split words into array
-        list_of_words = nltk.word_tokenize(sentence)
-        # Lemmatize each word - to create a meaningful base form
+        list_of_words = nltk.word_tokenize(message)
         list_of_words = [lem.lemmatize(word.lower()) for word in list_of_words]
         return list_of_words
 
     # Return a bag of words array, 1 for each word in the bag that exists in the sentence, 0 otherwise
-    def bagOfWords(sentence, words):
-        list_of_words = sanitizeSentence(sentence)
-        bag = [0]*len(words)  
+    def bagOfWords(message, words):
+        bag = [0]*len(words)
+        
         for list_word in list_of_words:
             for count, word in enumerate(words):
                 if word == list_word: 
@@ -55,17 +50,18 @@ def main():
         return(np.array(bag))
 
     # Predict responses and sort by probability
-    def predictClass(sentence, model):
+    def predictIntent(message, model):
         global probability
         global intent
 
-        vocab_matrix = bagOfWords(sentence, words)
-        res = model.predict(np.array([vocab_matrix]))[0]
-        results = [[i,r] for i,r in enumerate(res)]
-        results.sort(key=lambda x: x[1], reverse=True)
+        prediction = model.predict(np.array([bag_of_words]))[0]
+        results = [[intent,probability] for intent, probability in enumerate(prediction)]
+        results.sort(key=lambda intents: intents[1], reverse=True)
         return_list = []
+        
         for result in results:
-            return_list.append({"intent": classes[result[0]], "probability": str(result[1])})
+            return_list.append({"intent": tags[result[0]], "probability": str(result[1])})
+            
         probability = float(return_list[0]['probability'])
         intent = return_list[0]['intent']
         return return_list
@@ -76,23 +72,25 @@ def main():
         tag = ints_and_probs[0]['intent']
         list_of_intents = intents_json['intents']
         print("Probability of correct intent is: " + str(probability))
+        
         if probability < 0.5 or intent == "":
             intent = 'gibberish'
             return "I am sorry, I didn't understand you. Please retry your query with a little more detail."
+        
         for i in list_of_intents:
             if(i['tag']== tag):
                 result = random.choice(i['responses'])
                 break
+            
         return result
 
-    # Load the pre-trained model and return the highest probability response
-    def chatbotResponse(message):
-        intents_and_probabilities = predictClass(message, model)
-        response = getResponse(intents_and_probabilities, intents)
-        return response
-
     message = request.args["rawText"]
-    return jsonify(chatbotResponse(message), intent)
+    
+    list_of_words = sanitizeSentence(message)
+    bag_of_words = bagOfWords(message, words)
+    intent_and_probability = predictIntent(message, model)
+    response = getResponse(intent_and_probability, intents)
+    return jsonify(response, intent)
 
 # Open the questions file and return it as a json array
 @app.route("/questions")
@@ -114,6 +112,8 @@ def room_availability():
             if row[0] == "Available" and not any(row[3] in sublst for sublst in rooms) and num_people <= row[4]:
                 rooms.append([row[3], row[4], row[5], rowNum])
             rowNum += 1
+    if len(rooms) == 0:
+        return "Sorry there are no rooms for your party available for those dates. Please try some other dates."
     rooms.sort(key=lambda x: x[1])
     return jsonify(rooms)
                 
@@ -149,6 +149,7 @@ def generate_reference():
             thewriter.writerows(lines)
             
         return pending_reference
+
 
 if __name__ == "__main__":
     app.run(use_reloader=False, debug=True, host="0.0.0.0")

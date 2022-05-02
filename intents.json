@@ -1,6 +1,6 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hello","Hi there","Greetings","Aloha"],
+         "patterns": ["Hello", "Hi there", "Greetings", "Aloha"],
          "responses": ["Hi, I'm a hotel booking system chatbot. Ask me anything about our hotel.", "Hello, what can I assist you with today?", "Greetings, how may I be of assistance?"],
          "context": [""]
         },
@@ -19,8 +19,13 @@
          "responses": ["I am a hotel reservation chatbot. I can help you make a room booking or answer any questions you have about this hotel!"],
          "context": [""]
         },
+		{"tag": "introduction",
+         "patterns": ["What is your name?", "Who are you?", "What do I call you?", "Do you go by anything?"],
+         "responses": ["My name is Clive, it's a pleasure to meet you!"],
+         "context": [""]
+        },
 		{"tag": "BookingEnquiry",
-         "patterns": ["Book a room", "How much do your rooms cost?", "Do you have any availability?", "What are the prices of your rooms?", "I want to book a room", "I want to make a booking"],
+         "patterns": ["Book a room", "Do you have any availability?", "I want to book a room", "I want to make a booking", "Make a reservation", "I want to stay here"],
          "responses": ["When do you want to check in?"],
          "context": [""]
         },
@@ -35,7 +40,7 @@
          "context": [""]
         },
 		{"tag": "attractions",
-         "patterns": ["What is nearby to the hotel?", "What attractions are nearby?", "Is there a shop nearby?", "Can I find a bank near the hotel?", "What restaurants are in the area?", "What local attractions are in the area?"],
+         "patterns": ["What is nearby to the hotel?", "What attractions are nearby?", "Is there a shop nearby?", "Can I find a bank near the hotel?", "What restaurants are in the area?", "What local attractions are in the area?", "Local attractions"],
          "responses": ["In the surrounding area, you will find a museum, a range of bars/restaurants and a variety of nightclubs. A greater list of nearby facilities can be found on our website."],
          "context": [""]
         },
@@ -115,7 +120,7 @@
          "context": [""]
         },
 		{"tag": "children",
-         "patterns": ["Are children allowed at the hotel?", "Can bookings be made with children?", "Can I book a family room?"],
+         "patterns": ["Are children allowed at the hotel?", "Can bookings be made with children?", "Can I book a room with my children?", "I have a child, is that okay?", "What are your policies regarding family bookings?"],
          "responses": ["Children are welcome at our hotel, as long as at least one member of the party is 18+."],
          "context": [""]
         },

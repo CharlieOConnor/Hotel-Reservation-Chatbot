@@ -16,7 +16,7 @@ It uses Python as its backend and a sequential Keras AI model to handle user que
 
 5) Run main.py to start the chatbot and navigate to the web address specified in your terminal e.g. http://10.6.12.127:5000
 
-NOTE: The chatbot relies on the included hotel_bookings_dataset.csv file to check for available rooms. In the event you run out of rooms, just run data_generator.py to generate a new bookings dataset file.
+NOTE: The chatbot relies on the included hotel_bookings_dataset.csv file to check for available rooms. In the event all rooms become 'reserved', just run data_generator.py to generate a new bookings dataset file.
 
 # Features
 

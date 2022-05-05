@@ -65,22 +65,25 @@ def trainModel():
     train_patterns = list(training[:,0])
     train_intents = list(training[:,1])
 
-    # 3 layered model. First layer 256 neurons, second layer 128 and third equal to
+    # 3 layered model. First layer 128 neurons, second layer 96 and third equal to
     # the number of intents. Dropout present to prevent neurons from overfitting on data
-    model = Sequential()
-    model.add(Dense(256, input_shape=(len(train_patterns[0]),), activation='relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(128, activation='relu'))
-    model.add(Dropout(0.6))
-    model.add(Dense(len(train_intents[0]), activation='softmax'))
+    neuralNet = Sequential()
+    neuralNet.add(Dense(128, input_shape=(len(train_patterns[0]),), activation='relu'))
+    neuralNet.add(Dropout(0.6))
+    neuralNet.add(Dense(96, activation='relu'))
+    neuralNet.add(Dropout(0.5))
+    neuralNet.add(Dense(len(train_intents[0]), activation='softmax'))
 
     # Model compiled with gradient descent for maximum accuracy for this use case
-    sgd = gradient_descent_v2.SGD(learning_rate=0.01, decay=0.001, momentum=0.95)
-    model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+    neuralNet.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
     # Fitting and saving the model 
-    fitting_model = model.fit(np.array(train_patterns), np.array(train_intents), epochs=150, batch_size=16, verbose=1)
-    model.save('chatbot_model.h5', fitting_model)
+    fitting_model = neuralNet.fit(np.array(train_patterns), np.array(train_intents), shuffle=True, epochs=150, batch_size=16, verbose=1)
+    neuralNet.save('chatbot_model.h5', fitting_model)
+
+    # Print the final accuracy of the model
+    scores = neuralNet.evaluate(train_patterns, train_intents)
+    print("\n%s: %.2f%%" % ('Hotel Reservation Enquiry Accuracy: ', scores[1]*100))
 
 tokenize()
 lemmatize()

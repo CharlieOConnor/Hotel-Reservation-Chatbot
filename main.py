@@ -73,7 +73,7 @@ def main():
         list_of_intents = intents_json['intents']
         print("Probability of correct intent is: " + str(probability))
         
-        if probability < 0.5 or intent == "":
+        if probability < 0.7 or intent == "":
             intent = 'gibberish'
             return "I am sorry, I didn't understand you. Please retry your query with a little more detail."
         

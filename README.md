@@ -7,10 +7,10 @@ It uses Python as its backend and a sequential Keras AI model to handle user que
 
 1) Install Python if you don't have it already https://www.python.org/downloads/
    This project was built using 3.9.1 for reference
-
-2) cd to whichever directory you downloaded the project to.
    
-3) Go to https://pip.pypa.io/en/latest/user_guide/#requirements-files and open your terminal.
+2) Go to https://pip.pypa.io/en/latest/user_guide/#requirements-files and open your terminal.
+
+3) cd to whichever directory you downloaded the project to.
 
 4) Use the command appropriate for your system and install everything in the included requirements.txt file
 
